@@ -1,0 +1,16 @@
+.logos {
+
+    .swiper-slide {
+        max-width: 150px;
+
+        
+        @screen lg {
+            max-width: none;
+        }
+    }
+
+    &__item {
+        max-width: 150px;
+
+    }
+}

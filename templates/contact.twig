@@ -1,0 +1,9 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Contact', 'image': craft.assets().filename('newsroom.jpg').one()}} %}
+
+    {% include '_layout/block' with {'block': 'tabPanel', 'blockClass': 'py-14 lg:py-20 bg-gray-150'} %}
+
+{% endblock %}

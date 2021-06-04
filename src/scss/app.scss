@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+
+/* Plugins
+========== */
+
+/* Theme
+======== */
+@import 'utilities/*';
+@import 'typography';
+@import 'components/*';
+@import 'blocks/*';
+@import 'base';
+@import 'form';
+
+@tailwind utilities;

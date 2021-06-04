@@ -1,0 +1,16 @@
+{#
+   Tag tick
+   Tag with tick
+
+   @type {include}
+   @param {string} text
+
+#}
+
+{% if text is defined %}
+        <span class="text-sm leading-tight flex justify-center items-center">
+            <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="05.2-About----Careers" transform="translate(-437 -1198)" fill="#102257" fill-rule="nonzero"><g id="check-circle-Open-Po" transform="translate(437.219 1198.969)"><path d="M6.781 13.562A6.781 6.781 0 106.781 0a6.781 6.781 0 000 13.562zm-1.403-3.19L2.534 7.528a.438.438 0 010-.619l.62-.618a.436.436 0 01.618 0l1.915 1.915 4.104-4.103c.17-.17.448-.17.618 0l.62.619a.44.44 0 010 .619l-5.032 5.03a.438.438 0 01-.619 0z" id="check-circle"/></g></g></g></svg>
+            <span class="ml-1">{{ text }}</span>
+        </span>
+
+{% endif %}

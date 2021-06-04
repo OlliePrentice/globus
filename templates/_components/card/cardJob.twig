@@ -1,0 +1,41 @@
+{#
+   Card job
+   Card for displaying jobs
+
+   @type {include}
+   @param {object} href
+   @param {string} title
+   @param {string} excerpt
+#}
+
+<div class="card-job">
+  
+    <div class="flex flex-wrap items-center -mx-3">
+        <div class="px-3 w-full sm:flex-1">
+            <div class="max-w-lg mb-6 sm:mb-0">
+                <div class="mb-3">
+                    <div class="inline-block mr-10">
+                        {% include '_components/tag/tagTick' with {'text': 'Open Position'} %}
+                    </div>
+                    <div class="inline-block">
+                        {% include '_components/tag/tagTick' with {'text': 'Competitive Salary'} %}
+                    </div>
+                </div>
+
+                {% if title is defined %}
+                    <h6 class="mb-1">{{ title }}</h6>
+                {% endif %}
+                {% if excerpt is defined %}
+                    <p >{{ excerpt }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="px-3">
+            {% if href is defined %}
+                      {% include '_components/button/primary' with {'type': 'a', 'button': {'text': 'View Job Details', 'url': href}} %}
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,80 @@
+.main-header {
+
+    > div {
+        height: 85px;
+
+        @screen lg {
+            height: auto;
+        }
+    }
+
+    &.active {
+        &:after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: black;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+    }
+}
+
+
+@keyframes ticker {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+}
+
+
+.header-cta {
+    @media screen and (max-width: 639px) {
+        overflow: hidden;
+        padding-left: 100%;
+        box-sizing: content-box;
+        white-space: nowrap;
+
+    }
+}
+
+.ticker {
+
+
+    @media screen and (max-width: 639px) {
+        display: inline-block;
+        white-space: nowrap;
+        padding-right: 100%;
+        box-sizing: content-box;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-name: ticker;
+        animation-duration: 30s;
+    }
+}
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+
+    &:not(.mobile-menu-active) {
+        transform: translateY(-100%);
+    }
+}

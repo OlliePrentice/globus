@@ -1,0 +1,106 @@
+{#
+   Product detail
+   Product overview
+
+   @type {include}
+
+#}
+
+<div class="product-detail overflow-hidden relative"  data-aos="fade">
+    <div class="container mx-auto">
+        <div class="hidden lg:block">
+            {% include '_components/breadcrumbs' with {'links': [{'label': 'Home', 'href': '#'}, {'label': 'Hand Protection', 'href': '#'}, {'label': 'SHOWA 350R', 'href': '#'}]} %}
+        </div>
+        <div class="pt-12 lg:hidden">
+            <h1 class="text-3xl tracking-tight mb-0">SHOWA 350R</h1>
+            <p class="text-black">Nitrile Coated Palm Grip Glove</p>
+            <div class="py-4 mb-2">
+                <div class="swiper-container tag-slider !overflow-visible">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            {% include '_components/tag/tagFeature' with {'text': 'Multi Purpose', 'icon':  {'url': siteUrl ~ 'dist/images/icon-atom.svg', 'alt': 'atom'}} %}
+                        </div>
+                        <div class="swiper-slide">
+                            {% include '_components/tag/tagFeature' with {'text': 'Nitrile Palm', 'icon':  {'url': siteUrl ~ 'dist/images/icon-exclamation-circle.svg', 'alt': 'atom'}} %}
+                        </div>
+                        <div class="swiper-slide">
+                            {% include '_components/tag/tagFeature' with {'text': 'Robust Grip', 'icon':  {'url': siteUrl ~ 'dist/images/icon-grip-vertical.svg', 'alt': 'atom'}} %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap -mx-3">
+            <div class="px-3 w-full lg:w-7/12 h-full">
+                <div class="flex -mx-1">
+                    <div class="px-1 product-detail__nav-column hidden lg:block">
+                        <div class="product-gallery__nav swiper-container">
+                            <div class="swiper-wrapper">
+                                {% for i in 0..10 %}
+                                    <div class="swiper-slide">
+                                        <div class="max-h-full cursor-pointer transition hover:opacity-80">
+                                            {% include '_components/picture' with {'image': craft.assets().filename('glove.jpg').one(), 'transform': '1x1'} %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-1 flex-1 min-w-0">
+                        <div class="product-gallery__slider swiper-container max-w-full">
+                            <div class="swiper-wrapper">
+                                {% for i in 0..10 %}
+                                    <div class="swiper-slide">
+                                        <div class="pt-full">
+                                            <div class="absolute top-0 left-0 w-full h-full img-full">
+                                                {% include '_components/picture' with {'image': craft.assets().filename('glove.jpg').one(), 'transform': '1x1'} %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-3 w-full lg:w-5/12">
+                <div class="xl:pl-10 pt-2">
+                    <div class="hidden lg:block">
+                        <h1 class="text-3xl tracking-tight mb-0">SHOWA 350R</h1>
+                        <p class="text-black">Nitrile Coated Palm Grip Glove</p>
+                        <div class="py-4 mb-2">
+                            <div class="swiper-container tag-slider !overflow-visible">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        {% include '_components/tag/tagFeature' with {'text': 'Multi Purpose', 'icon':  {'url': siteUrl ~ 'dist/images/icon-atom.svg', 'alt': 'atom'}} %}
+                                    </div>
+                                    <div class="swiper-slide">
+                                        {% include '_components/tag/tagFeature' with {'text': 'Nitrile Palm', 'icon':  {'url': siteUrl ~ 'dist/images/icon-exclamation-circle.svg', 'alt': 'atom'}} %}
+                                    </div>
+                                    <div class="swiper-slide">
+                                        {% include '_components/tag/tagFeature' with {'text': 'Robust Grip', 'icon':  {'url': siteUrl ~ 'dist/images/icon-grip-vertical.svg', 'alt': 'atom'}} %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-5 lg:border-t border-gray-300 mb-7">
+                        <div class="inline-block mr-10 align-top">
+                            {% include '_components/product/attributes' with {'label': 'One Colour', 'attribute':  {'icon': {'url': siteUrl ~ 'uploads/images/colour.svg', 'alt': 'Colour'}, 'text': 'Grey/Green'}} %}
+                        </div>
+                        <div class="inline-block align-top">
+                            {% include '_components/product/attributes' with {'label': 'Available Sizes', 'attribute':  {'text': '7S - 10XL'}} %}
+                        </div>
+                    </div>
+
+                    <div class="button-full">
+                        {% include '_components/button/primaryFull'  with {'type': 'a', 'button': {'text': 'Make A Product Enquiry', 'url': '#'}} %}
+                    </div>
+                    <div class="pt-8">
+                        {% include '_components/product/productFeatures' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

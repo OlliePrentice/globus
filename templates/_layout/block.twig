@@ -1,0 +1,28 @@
+
+{#
+    Block
+    Block wrapper
+
+    @type {include}
+    @param {string} block
+    @param {string} blockClass
+    @param {string} containerClass
+    @param {bool} container
+    @param {object} data
+
+#}
+
+{% set data = data is defined ? data : {} %}
+{% set container = container is defined ? container : true %}
+
+{% if block is defined %}
+<section class="{{ blockClass is defined ? blockClass }}">
+    {% if container != false %}
+        <div class="container mx-auto {{ containerClass is defined ? containerClass }}">
+    {% endif %}
+        {% include '_blocks/' ~ block with data %}
+    {% if container is defined and container %}
+        </div>
+    {% endif %}
+</section>
+{% endif %}

@@ -1,0 +1,13 @@
+{#
+   Tag Feature
+   Tag in product description
+
+   @type {include}
+
+#}
+
+{% if text is defined %}
+    <div class="inline-block bg-gray-150 px-4 py-2 text-center {{ class is defined ? class }}">
+        <span class="text-xxs text-black flex justify-center items-center">{% if icon is defined %}<img src="{{ icon.url }}" alt="{{ icon.alt }}" class="mr-2">{% endif %}{{ text }}</span>
+    </div>
+{% endif %}

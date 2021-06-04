@@ -1,0 +1,29 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Riley Eyewear' , 'text': '<p>Lorem ipsum is simply dummy text of the printing and typesetting industy. been the industry\'s standard dummy text ever since the 1500s, Lorem Ipsum.</p>', 'image': craft.assets().filename('ALP-APP-2530V-0121.jpg').one()}} %}
+
+    {% set products = {
+        'items': [
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one(), 'tag': 'New in'},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Riley Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'productLoop', 'blockClass': 'py-14 lg:py-20', 'data': products} %}
+
+{% endblock %}

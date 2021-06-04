@@ -1,0 +1,15 @@
+{#
+   Quote
+   blockquote
+
+   @type {include}
+   @param {object} text
+
+#}
+
+
+{% if text is defined %}
+    <blockquote class="quote text-center max-w-4xl mx-auto text-2xl md:text-3xl"  data-aos="fade">
+        {{ text | raw }}
+    </blockquote>
+{% endif %}

@@ -1,0 +1,11 @@
+{#
+   Tag Product
+   Tag over product image
+
+   @type {include}
+
+#}
+
+{% if tag is defined %}
+    <span class="absolute top-4 left-4 z-10 bg-black text-xxs text-white font-medium px-3 py-1">{{ tag }}</span>
+{% endif %}

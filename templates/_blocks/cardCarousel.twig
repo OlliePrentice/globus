@@ -1,0 +1,53 @@
+{#
+   Card Carousel
+   Carousel with screen overflow
+
+   @type {include}
+
+#}
+
+{% set items = [
+    {'href': '#', 'title': 'Healthcare', 'image': craft.assets().filename('healthcare.jpg').one()},
+    {'href': '#', 'title': 'Automotive', 'image': craft.assets().filename('automotive.jpg').one()},
+    {'href': '#', 'title': 'Construction', 'image': craft.assets().filename('construction.jpg').one()},
+    {'href': '#', 'title': 'Chemical', 'image': craft.assets().filename('chemical.jpg').one()},
+    {'href': '#', 'title': 'Healthcare', 'image': craft.assets().filename('healthcare.jpg').one()},
+    {'href': '#', 'title': 'Automotive', 'image': craft.assets().filename('automotive.jpg').one()},
+    {'href': '#', 'title': 'Construction', 'image': craft.assets().filename('construction.jpg').one()},
+    {'href': '#', 'title': 'Chemical', 'image': craft.assets().filename('chemical.jpg').one()},
+]
+
+%}
+
+
+
+<div class="card-carousel"  data-aos="fade">
+    <h2 class="lg:hidden">Browse By Industry</h2>
+    <div class="flex flex-wrap -mx-4 remove-underline">
+        <div class="px-4 w-full lg:w-4/12 order-2 lg:order-1">
+            <div class="card-carousel__content  relative z-10 h-full flex items-center">
+                <div>
+                    <h2 class="lg:text-5xl hidden lg:block">Browse By Industry</h2>
+                    <div class="-mx-2.5 flex pt-6 lg:pt-0">
+                        <div class="swiper-button-prev mx-2.5"></div>
+                        <div class="swiper-button-next mx-2.5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 w-full lg:w-8/12 order-1 lg:order-2">
+            {% if items is defined %}
+                <div class="card-carousel__slider swiper-container !overflow-visible">
+                    <div class="swiper-wrapper">
+                        {% for item in items %}
+                            <div class="swiper-slide">
+                                {% include '_components/card/cardPortrait' with item %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

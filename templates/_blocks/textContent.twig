@@ -1,0 +1,24 @@
+{#
+    Text content
+    Headings and paragraphs
+
+    @type {include}
+    @param {string} content
+    @param {object} links
+
+#}
+
+
+<div class="text-content max-w-3xl mx-auto"  data-aos="fade">
+    {% if content is defined %}
+        {{ content | raw }}
+    {% endif %}
+    {% if links is defined %}
+        <div class="pt-6">
+            {% for link in links %}
+                {% include '_components/button/downloadLink' with link %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+

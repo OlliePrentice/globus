@@ -1,0 +1,35 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'hero', 'blockClass': 'bg-gray-100 relative overflow-hidden'} %}
+    {% include '_layout/block' with {'block': 'bannerText', 'container': false} %}
+    {% include '_layout/block' with {'block': 'logos', 'blockClass': 'pt-20 pb-20'} %}
+    {% include '_layout/block' with {'block': 'bannerBackground', 'container': false} %}
+    {% include '_layout/block' with {'block': 'cardCarousel', 'blockClass': 'overflow-hidden py-20 lg:py-28'} %}
+
+    {% set productCarouselData = {
+        'title': 'Browse By Product',
+        'type' : 'category',
+        'items': [
+            {'href': '#', 'title': 'Safety Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'Head Protection', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'Hand Protection', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Respiratory Protection', 'image': craft.assets().filename('ALP-AMF3V.jpg').one()},
+            {'href': '#', 'title': 'Safety Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'Head Protection', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'Hand Protection', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Respiratory Protection', 'image': craft.assets().filename('ALP-AMF3V.jpg').one()},
+            {'href': '#', 'title': 'Safety Eyewear', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': ' pb-16 lg:pb-28', 'data': productCarouselData} %}
+
+    {% include '_layout/block' with {'block': 'splitPanels', 'container': false} %}
+
+    {% include '_layout/block' with {'block': 'quickLinks', 'blockClass': 'py-10'} %}
+
+{% endblock %}

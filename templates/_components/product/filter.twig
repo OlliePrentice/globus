@@ -1,0 +1,107 @@
+ {#
+    Product Filter
+    Filter dropdowns
+
+    @type {include}
+
+#}
+
+{% set sectionClass = '
+    border-b border-gray-200 mb-3 pr-1
+' %}
+
+<form id="productFilterForm" method="get" class="pr-5 pb-14 lg:pb-0 max-w-lg mx-auto"  data-aos="fade">
+    <div class="flex flex-wrap items-center -mx-2.5 mb-6 pt-14">
+        <div class="px-2.5 flex-1">
+            <h6 class="mb-0">Filter</h6>
+        </div>
+        <div class="px-2.5 lg:hidden">
+            <span class="close" x-on:click="mobileFilterOpen = ! mobileFilterOpen"></span>
+        </div>
+    </div>
+    <div x-data="{ open: true }" class="{{ sectionClass }}">
+        {% include '_components/button/filterDropdown' with {'title': 'Categories'} %}
+
+        <ul
+            x-show="open"
+            class="!pl-1 mb-6"
+        >
+            {% set categories = ['Safety Eyewear (76)', 'Hand Protection (86)', 'Head Protection (421)', 'Hearing Protection (29)', 'Safety Footwear (62)', 'Respiratory Protection (17)', 'Protective Clothing (522)'] %}
+            {% for item in categories %}
+                <li class="mb-1">
+                    <input type="radio" name="category" id="cat{{ loop.index }}" value="{{ loop.index }}">
+                    <label for="cat{{ loop.index }}">{{ item }}</label>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div x-data="{ open: true }" class="{{ sectionClass }}">
+        {% include '_components/button/filterDropdown' with {'title': 'Gender'} %}
+
+        <ul
+            x-show="open"
+            class="!pl-1 mb-6"
+        >
+            {% set genders = ['Men', 'Female', 'Unisex'] %}
+            {% for item in genders %}
+                <li class="mb-1">
+                    <input type="radio" name="gender" id="gender{{ loop.index }}" value="{{ loop.index }}">
+                    <label for="gender{{ loop.index }}">{{ item }}</label>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div x-data="{ open: true }" class="{{ sectionClass }}">
+        {% include '_components/button/filterDropdown' with {'title': 'Colour'} %}
+        <div class="lg:w-32">
+            <ul
+                x-show="open"
+                class="!pl-1 mb-6 -mx-1"
+            >
+                {% set colours = ['#000000', '#1BC000', '#1B31C3', '#FF0000', '#FFF600', '#969696', '#FFA800', '#FFFFFF'] %}
+                {% for item in colours %}
+                    <li class="inline-block mb-1 px-1">
+                        <input type="radio" name="colour" id="colour{{ loop.index }}" value="{{ loop.index }}" class="colour-input">
+                        <label for="colour{{ loop.index }}" class="border colour-input__label {{ item == '#FFFFFF' ? 'colour-input__label--white border-gray-500' : 'border-transparent' }}" ><span style="background-color: {{ item }};" class="block"></span></label>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div x-data="{ open: true }" class="{{ sectionClass }}">
+        {% include '_components/button/filterDropdown' with {'title': 'Brand'} %}
+
+        <ul
+            x-show="open"
+            class="!pl-1 mb-6"
+        >
+            {% set brands = ['Riley', 'Haika', 'Skytec', 'Showa', 'Enha'] %}
+            {% for item in brands %}
+                <li class="mb-1">
+                    <input type="radio" name="brand" id="brand{{ loop.index }}" value="{{ loop.index }}">
+                    <label for="brand{{ loop.index }}">{{ item }}</label>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div x-data="{ open: true }" class="{{ sectionClass }}">
+        {% include '_components/button/filterDropdown' with {'title': 'Industry'} %}
+
+        <ul
+            x-show="open"
+            class="!pl-1 mb-6 filter-scroll simplebar-plain"
+            data-simplebar data-simplebar-scrollbar-max-size="30"
+        >
+            {% set industries = ['Healthcare', 'Aerospace', 'Automotive', 'Chemicals', 'Construction', 'Manufacturing', 'Oil & Gas', 'Ports', 'Steels and Metals', 'Utilities', 'Waste & Recycling'] %}
+            {% for item in industries %}
+                <li class="mb-1">
+                    <input type="radio" name="industry" id="industry{{ loop.index }}" value="{{ loop.index }}">
+                    <label for="industry{{ loop.index }}">{{ item }}</label>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pt-5">
+        <button type="button" id="resetFilter" class="link" >Clear All</button>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+@mixin columns {
+    @for $i from 1 through 5 {
+        .columns-#{$i} { 
+            columns: #{$i};
+         }
+    }
+}
+
+@include columns;

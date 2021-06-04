@@ -1,0 +1,62 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Alpha Solway', 'image': craft.assets().filename('ppe.jpg').one()}} %}
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one(),
+        'logo': {'url': siteUrl ~ 'uploads/images/Alpha-Solway.svg', 'alt': 'alpha-solway'},
+        'content': '<p>Alpha Solway® is a UK-based manufacturer and supplier of world-blockClass respiratory protection, eye protection, hearing protection, head protection and protective clothing solutions for over 30 years.</p>
+                    <p>They have a strong reputation for quality and service and are committed to doing all they can to help your business stay compliant, safe and productive.</p>',
+        'link': {'url': '#', 'title': 'View Our Products'},
+        'reverse': true
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-14 lg:py-20', 'data': contentImageOne} %}
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('RLY-APP-STREAM-EVO.jpg').one(),
+        'title': 'About Alpha',
+        'content': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>',
+        'link': {'url': '#', 'title': 'Download Our Catalogue'},
+        
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageTwo} %}
+
+    
+    {% set contentImageThree = {
+        'image': craft.assets().filename('SKY-APP-STREAM EVO.jpg').one(),
+        'title': 'Our History',
+        'content': '<p>Quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo.</p>',
+        'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageThree} %}
+
+    {% set productCarouselData = {
+        'title': 'Shop Alpha Products',
+        'type' : 'product',
+        'items': [
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one(), 'tag': 'New in'},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Alpha Solway', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'pb-14 lg:pb-28', 'data': productCarouselData} %}
+
+    {% include '_layout/block' with {'block': 'bannerBackground', 'blockClass': 'pb-10', 'container': false} %}
+
+{% endblock %}

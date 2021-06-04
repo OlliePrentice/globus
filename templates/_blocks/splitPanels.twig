@@ -1,0 +1,45 @@
+{#
+   Split Panels
+   Split content with background
+
+   @type {include}
+
+#}
+
+{% set full = {
+    mode: 'crop',
+    width: 750,
+    height: 450,
+    quality: 75,
+    position: 'center'
+} %}
+
+
+{% set items = [
+    {'title': 'Are you outside the UK?', 'image': craft.assets().filename('ALP-APP-2530V-0121.jpg').one().getUrl(full), 'button': {'href': '#', 'title': 'International Customers'}},
+    {'title': 'Safety Standards Explained', 'image': craft.assets().filename('ENH-APP-RADIUS.jpg').one().getUrl(full), 'button': {'href': '#', 'title': 'Find Out More'}}
+]
+%}
+
+{% if items is defined %}
+<div class="split-panels px-5 lg:px-10"  data-aos="fade">
+    <div class="flex flex-wrap -mx-2.5 theme-dark text-center">
+        {% for item in items %}
+            <div class="px-2.5 w-full lg:w-1/2 mb-2.5 last:mb-0">
+                <div data-bg="{{ item.image }}" class="lazy-load bg-cover bg-center">
+                    <div class="bg-black bg-opacity-30 py-20 px-3 lg:px-10 split-panels__panel flex items-center">
+                        <div class="max-w-md mx-auto">
+                            <h3 class="lg:text-5xl mb-8">{{ item.title }}</h3>
+
+                            {% if item.button is defined %}
+                                {% include '_components/button/secondary' with {'type': 'a', 'button': {'text': item.button.title, 'url': item.button.href}} %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+

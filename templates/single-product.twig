@@ -1,0 +1,27 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'productDetail', 'blockClass': 'pb-16 lg:pb-20', 'container': false} %}
+
+    {% include '_layout/block' with {'block': 'productTabs', 'blockClass': 'pb-16 lg:pb-20'} %}
+
+    {% set productCarouselData = {
+        'title': 'Similar Products',
+        'type' : 'product',
+        'items': [
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Showa Gloves', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'pb-16 lg:pb-20', 'data': productCarouselData} %}
+
+{% endblock %}

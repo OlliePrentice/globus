@@ -1,0 +1,62 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Skytec', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()}} %}
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('SKY-APP-ARGON.jpg').one(),
+        'logo': {'url': siteUrl ~ 'uploads/images/Skytec.svg', 'alt': 'enha'},
+        'content': '<p>Skytec® gloves deliver advanced hand protection for users in many different industries. The Skytec range will fulfil all your safety obligations whilst delivering exceptional value for money and gaining widespread user acceptance.</p>
+                    <p>This is underpinned by the positive effect the range can have on worker productivity, environmental and waste costs, insurance premiums, expensive downtime and \'management\' time.</p>',
+        'link': {'url': '#', 'title': 'View Our Products'},
+         'reverse': true
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-14 lg:py-20', 'data': contentImageOne} %}
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('SKY-APP-TROMSO.jpg').one(),
+        'title': 'About Skytec',
+        'content': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>',
+        'link': {'url': '#', 'title': 'Download Our Catalogue'},
+       
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageTwo} %}
+
+    
+    {% set contentImageThree = {
+        'image': craft.assets().filename('SKY-APP-ARGON.jpg').one(),
+        'title': 'Our History',
+        'content': '<p>Quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo.</p>',
+         'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageThree} %}
+
+    {% set productCarouselData = {
+        'title': 'Shop Skytec Products',
+        'type' : 'product',
+        'items': [
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one(), 'tag': 'New in'},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Skytec', 'image': craft.assets().filename('RILEY-STREAM-EVO-GREY-L-0718-CMYK.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'pb-14 lg:pb-28', 'data': productCarouselData} %}
+
+    {% include '_layout/block' with {'block': 'bannerBackground', 'blockClass': 'pb-10', 'container': false} %}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{#
+   Quick links
+   In page navigation
+
+   @type {include}
+
+#}
+
+{% set items = [
+    {'title': 'All Products',
+        'links': [
+            {'href': '#', 'title': 'All Products'},
+            {'href': '#', 'title': 'Safety Eyewear'},
+            {'href': '#', 'title': 'Hand Protection'},
+            {'href': '#', 'title': 'Head Protection'},
+        ]
+    },
+    {'title': 'By Industy',
+        'links': [
+            {'href': '#', 'title': 'Aerospace'},
+            {'href': '#', 'title': 'Automotive'},
+            {'href': '#', 'title': 'Chemicals'},
+            {'href': '#', 'title': 'Construction'},
+            {'href': '#', 'title': 'Aerospace'},
+            {'href': '#', 'title': 'Automotive'},
+        ]
+    },
+    {'title': 'By Brand',
+        'links': [
+            {'href': '#', 'title': 'Riley'},
+            {'href': '#', 'title': 'Haika'},
+            {'href': '#', 'title': 'Showa'},
+            {'href': '#', 'title': 'Skytec'},
+            {'href': '#', 'title': 'Haika'},
+            {'href': '#', 'title': 'Showa'},
+        ]
+    },
+    {'title': 'New In',
+        'links': [
+            {'href': '#', 'title': 'AREZZO'},
+            {'href': '#', 'title': 'DURACoil Series'},
+            {'href': '#', 'title': 'S-TEX 377'},
+            {'href': '#', 'title': 'Argon Xtra™'},
+            {'href': '#', 'title': 'DURACoil Series'},
+            {'href': '#', 'title': 'S-TEX 377'},
+        ]
+    }
+] 
+
+%}
+
+{% if items is defined %}
+    <div class="quick-links remove-bullets remove-underline pt-6 px-5"  data-aos="fade">
+        <nav class="max-w-3xl mx-auto">
+            <ul class="flex flex-wrap -mx-4 mb-0">
+                {% for item in items %}
+                    <li class="px-4 w-1/2 md:w-1/4 mb-14">
+                        <span class="text-sm text-black font-extrabold tracking-wide inline-block mb-5 leading-tight">{{ item.title }}</span>
+                        {% if item.links is defined %} 
+                            <div class="mb-0 quick-links__list pl-5 -ml-5" role="list" data-simplebar data-simplebar-auto-hide="false" data-simplebar-scrollbar-max-size="30" data-simplebar-direction='rtl'>
+                                {% for link in item.links %}
+                                    <div class="text-sm tracking-wide mb-2 last:mb-0 leading-snug" role="listitem"><a href="{{ link.href }}" class="text-gray-700 hover:text-primary">{{ link.title }}</a></div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}

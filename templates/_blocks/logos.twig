@@ -1,0 +1,46 @@
+{#
+   Logos
+   Heading and logos
+
+   @type {include}
+
+#}
+
+
+{% set items = [
+    {'href': '#', 'title': 'ENHA', 'image': siteUrl ~ 'uploads/images/ENHA.svg'},
+    {'href': '#', 'title': 'Showa', 'image': siteUrl ~ 'uploads/images/Showa.svg'},
+    {'href': '#', 'title': 'Alpha Solway', 'image': siteUrl ~ 'uploads/images/Alpha-Solway.svg'},
+    {'href': '#', 'title': 'Haika', 'image': siteUrl ~ 'uploads/images/Haika.svg'},
+    {'href': '#', 'title': 'Skytec', 'image': siteUrl ~ 'uploads/images/Skytec.svg'},
+    {'href': '#', 'title': 'Riley', 'image': siteUrl ~ 'uploads/images/Riley.svg'},
+] 
+
+%}
+
+
+<div class="logos text-center remove-bullets"  data-aos="fade">
+    <h5 class="font-bold mb-12">Discover Our Brands</h5>
+
+    {% if items is defined %}
+        <div class="logos__slider swiper-container remove-underline">
+            <div class="swiper-wrapper">
+                {% for item in items %}
+                    <div class="swiper-slide text-center">
+                        {% if item.href is defined %}
+                            <a href="{{ item.href }}" class="inline-block">
+                        {% endif %}
+                            {% if item.image is defined %}
+                                <span class="logos__item block mx-auto">
+                                    <img data-src="{{ item.image }}" alt="{{ item.title }}" class="lazy-load mx-auto">
+                                </span>
+                            {% endif %}
+                        {% if item.href is defined %}
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>

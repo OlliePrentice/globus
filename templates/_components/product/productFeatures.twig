@@ -1,0 +1,22 @@
+{#
+   Product Features
+   Bullet pointed features
+
+   @type {include}
+
+#}
+
+<div x-data="{ open: false }">
+    {% include '_components/heading/smallExtrabold' with {'heading': 'Features and Benefits'} %}
+
+    <div class="text-sm pt-4 mb-6" x-bind:class="{ 'limit-feature-height': ! open }">
+        <ul class="icon-list mb-0">
+            <li>A flexible, robust glove offering exceptional grip, dexterity and durability</li>
+            <li>Nitrile palm protects the hand from oils, hydrocarbons, grease and abrasion, with effective long lasting grip</li>
+            <li>Breathable back of hand reduce perspiration</li>
+            <li>Rough surface to the nitrile provides a tactile feel and enhanced grip</li>
+        </ul>
+    </div>
+
+    <button type="button" class="link" x-on:click="open = ! open" x-text="open ? 'Show Less' : 'Show More'">Show More</button>
+</div>

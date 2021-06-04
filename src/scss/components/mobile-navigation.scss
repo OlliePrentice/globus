@@ -1,0 +1,82 @@
+.mobile-navigation {
+    display: none;
+    top: 85px;
+    width: 100%;
+    height: calc(100% - 85px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &.active {
+        display: block;
+    }
+
+
+    li {
+        @apply max-w-lg mx-auto;
+    }
+
+    a {
+        @apply block px-5;
+    }
+
+    .sub-menu {
+        position: fixed;
+        top: 85px;
+        left: 0;
+        z-index: 40;
+        width: 100%;
+        height: calc(100% - 85px);
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;    
+        background: white;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        @apply pt-8 pb-24;
+
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;   
+        }
+    }
+
+    .has-children > a {
+        @apply pr-8;
+    }
+
+    .has-children > a, .back-link {
+        cursor: pointer;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 22px;
+            width: 10px;
+            height: 10px;
+            
+            @apply border-t-2 border-r-2 border-black transform rotate-45 -translate-y-1/2;
+        
+        }
+    }
+
+    .back-link {
+ 
+        @apply px-10;
+
+        &:after {
+            right: auto;
+            left: 2px;
+
+            @apply -rotate-135;
+        }
+   
+    }
+}

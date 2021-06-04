@@ -1,0 +1,38 @@
+{#
+   Footer
+   Site footer
+
+   @type {include}
+
+#}
+
+
+<footer class="main-footer remove-bullets">
+    {% include '_components/newsletterBar' %}
+
+    <div class="container remove-underline">
+        <div class="flex flex-wrap pt-12 pb-6 lg:py-20 -mx-4 xl:-mx-8">
+            <div class="px-4 mb-10 lg:mb-0 w-full lg:w-auto">
+                <div class="lg:pr-10">
+                    <div class="mb-5 lg:mb-10">
+                        <a href="/">
+                            {% include '_components/picture' with {'image': {'title': 'Logo', 'url': siteUrl ~ 'dist/images/logo.svg', 'extension': 'svg'}} %}
+                        </a>
+                    </div>
+
+                    <address class="font-bold text-sm text-primary not-italic">
+                        Globus Group,<br>
+                        T2 Trafford Point,<br>
+                        Twining Road, Trafford Park,<br>
+                        Manchester, M17 1SH, UK
+                    </address>
+                </div>
+            </div>
+            <div class="px-4 flex-1">
+                {% include '_components/footerNavigation' %}
+            </div>
+        </div>
+    </div>
+
+    {% include '_components/footerBar' %}
+</footer>

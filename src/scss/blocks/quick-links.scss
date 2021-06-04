@@ -1,0 +1,14 @@
+.quick-links {
+    &__list {
+        direction: rtl;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: 105px;
+
+        > * {
+            direction: ltr;
+        }
+    }
+
+}

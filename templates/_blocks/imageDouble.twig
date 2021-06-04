@@ -1,0 +1,21 @@
+{#
+   Image double
+   double contained images
+
+   @type {include}
+   @param {object} images
+
+#}
+
+
+{% if images is defined %}
+    <div class="image-double text-center max-w-4xl mx-auto"  data-aos="fade">
+        <div class="flex flex-wrap -mx-2.5">
+            {% for image in images %}
+                <div class="px-2.5 w-full sm:w-1/2 mb-5 last:mb-0 sm:mb-0">
+                    {% include '_components/picture' with {'image': image, 'transform': 'imageDouble'} %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

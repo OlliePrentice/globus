@@ -1,0 +1,35 @@
+{#
+   Hero
+   Content and image
+
+   @type {include}
+
+#}
+
+
+<div class="hero pt-10 lg:py-10 flex items-center"  data-aos="fade">
+    <div class="lg:pt-14 w-full">
+        <div class="md:w-1/2 relative z-10">
+            <h1 class="text-primary font-bold mb-4">Leading The Way in PPE</h1>
+            <div class="max-w-sm">
+                <div>
+                    <p class="text-base md:text-sm text-primary-800">Three Decades of smart solutions - for now and for the future, determined to help you do your best work possible</p>
+                </div>
+                <div class="buttons pt-6">
+                    <div>
+                        {% include '_components/button/secondary' with {'type': 'a', 'button': {'text': 'View All Products', 'url': '#'}} %}
+                    </div>
+                    <div>
+                        {% include '_components/button/secondary' with {'type': 'a', 'button': {'text': 'Browse By Brand', 'url': '#'}} %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="-mt-5 -mb-32 md:absolute md:top-1/2 right-0 transform md:-translate-y-1/2 md:w-1/2 text-center">
+            <div class="max-w-2xl mx-auto">
+                <img data-src="{{ siteUrl ~ 'uploads/images/hero.png' }}" alt="Products" class="lazy-load">
+            </div>
+        </div>
+    </div>
+</div>

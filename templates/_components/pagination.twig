@@ -1,0 +1,60 @@
+{#
+   Pagination
+   Pagination for entries and elements.
+
+   @type {include}
+   @param {array} pagination
+
+#}
+
+{# {% if pagination is defined and pagination.totalPages > 1 %}
+
+   {% do seomatic.helper.paginate(pagination) %}
+
+   <div class="flex flex-wrap">
+
+      {% if pagination.prevUrl %}
+         <a href="{{ pagination.prevUrl }}" class="mr-1">
+            &larr;
+         </a>
+      {% endif %}
+
+      {% for page, url in pagination.getPrevUrls(3) %}
+          <a href="{{ url }}" class="mr-1">{{ page }}</a>
+      {% endfor %}
+
+      <span class="mr-1">{{ pagination.currentPage }}</span>
+
+      {% for page, url in pagination.getNextUrls(3) %}
+          <a href="{{ url }}" class="mr-1">{{ page }}</a>
+      {% endfor %}
+
+      {% if pagination.nextUrl %}
+         <a href="{{ pagination.nextUrl }}" class="mr-1">
+            &rarr;
+         </a>
+      {% endif %}
+
+   </div>
+
+{% endif %} #}
+
+{% set itemClass = 'pagination__item flex items-center justify-center mx-1.5 rounded-full border mb-1 text-black hover:border-primary' %}
+
+<div class="pagination flex flex-wrap justify-center -mx-1.5">
+
+      <a href="#" class="{{ itemClass }} border-gray-200">
+         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g id="01-Home" transform="translate(-270 -2097)"><path d="M275.969 2108.658l5.317-5.318a.305.305 0 000-.43l-5.317-5.318a.305.305 0 00-.431 0l-.503.503a.305.305 0 000 .431l3.939 3.939h-8.67a.305.305 0 00-.304.305v.71c0 .169.136.305.305.305h8.669l-3.939 3.939a.305.305 0 000 .43l.503.504a.305.305 0 00.43 0z" id="" transform="rotate(-180 275.687 2103.125)"/></g></svg>
+      </a>
+
+      <span class="{{ itemClass }} border-primary">1</span>
+
+      <a href="#" class="{{ itemClass }} border-gray-200">2</a>
+      <a href="#" class="{{ itemClass }} border-gray-200">3</a>
+
+ 
+      <a href="#" class="{{ itemClass }} border-gray-200">
+         <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g id="01-Home" transform="translate(-331 -2097)"><path d="M336.969 2108.658l5.317-5.318a.305.305 0 000-.43l-5.317-5.318a.305.305 0 00-.431 0l-.503.503a.305.305 0 000 .431l3.939 3.939h-8.67a.305.305 0 00-.304.305v.71c0 .169.136.305.305.305h8.669l-3.939 3.939a.305.305 0 000 .43l.503.504a.305.305 0 00.43 0z" id=""/></g></svg>
+      </a>
+
+</div>

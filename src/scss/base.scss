@@ -1,0 +1,395 @@
+// Font Face
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Light', 300, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-LightItalic', 300, 'italic');
+@include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Regular', 400, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Italic', 400, 'italic');
+@include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Medium', 500, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-MediumItalic', 500, 'italic');
+@include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Bold', 700, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-BoldItalic', 700, 'italic');
+@include font-face('Modern Era TRIAL', 'ModernEraTRIAL-ExtraBold', 800, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-ExtraBoldItalic', 800, 'italic');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-Black', 900, 'normal');
+// @include font-face('Modern Era TRIAL', 'ModernEraTRIAL-BlackItalic', 900, 'italic');
+
+// Body
+
+html {
+   @apply text-base;
+}
+
+body {
+   padding-top: 126px;
+
+   @screen lg {
+      padding-top: 127px;
+   }
+
+  @apply
+     font-sans-primary
+     text-gray-700
+     text-optimize-legibility
+     antialiased
+     text-smd
+     font-medium;
+}
+
+// Links
+
+a {
+   @apply transition underline text-primary hover:text-black;
+}
+
+.link {
+   @apply font-extrabold text-base border-b-2 border-black text-black no-underline leading-tight hover:text-primary hover:border-primary;
+}
+
+a, button {
+   @apply focus:outline-none;
+}
+
+// Typography
+
+p {
+   @apply mb-6;
+   &:last-of-type {
+      @apply mb-0;
+   }
+   &:empty {
+      @apply hidden;
+   }
+
+   strong {
+      @apply text-black;
+   }
+
+   + ul, ol {
+      @apply pt-6;
+   }
+}
+
+ul, ol {
+   padding-left: 1rem;
+}
+
+ol {
+   list-style: decimal;
+}
+
+ul {
+   list-style: disc;
+
+   ::marker {
+      font-size: .8em;
+    }
+}
+
+blockquote {
+   @apply
+      text-black
+      font-bold;
+}
+
+// Selection
+
+::selection {
+   @apply text-primary bg-blue-300;
+}
+
+// FOUT fix
+
+.wf-loading {
+   @apply invisible;
+}
+
+.wf-active,
+.wf-inactive {
+   @apply visible;
+}
+
+
+.theme-dark *, p.text-white strong {
+   color: white;
+}
+
+.wrap-match {
+   font-weight: 800;
+}
+
+.remove-last-margin {
+   > * {
+     &:last-child {
+         margin-bottom: 0;
+     }
+   }
+}
+
+.remove-bullets {
+   ul,ol {
+      padding-left: 0;
+      list-style: none;
+   }
+
+   li {
+
+       &:before {
+           display: none;
+       }
+   }
+}
+
+.remove-underline {
+   text-decoration: none;
+
+   a {
+      text-decoration: none;
+   }
+}
+
+.img-full img {
+   width: 100%;
+}
+
+.buttons {
+   @apply -mx-1.5;
+
+   > * {
+      @apply inline-block px-1.5 mb-3;
+   }
+}
+
+.swiper-button-prev.swiper-button-prev, .swiper-button-next.swiper-button-next {
+   position: relative;
+   top: 0;
+   width: 50px;
+   height: 50px;
+   margin-top: 0;
+   transform: none;
+
+
+   
+   @apply 
+      rounded-full 
+      border 
+      border-gray-200
+      transition
+      bg-white
+      hover:border-primary;
+
+   &:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: url(../images/icon-arrow-left.svg) center no-repeat;
+      background-size: contain;
+   }
+}
+
+.swiper-button-next.swiper-button-next {
+   &:after {
+      background: url(../images/icon-arrow-right.svg) center no-repeat;
+      background-size: contain;
+   }
+}
+
+.wide-arrows {
+   .swiper-button-prev, .swiper-button-next {
+      @screen xl {
+         position: absolute;
+         top: 50%;
+         margin-top: calc(0px - (75px / 2));
+      }
+   }
+
+   .swiper-button-prev {
+      @apply -left-1.5 xl:-left-16;
+
+      @media screen and (min-width: 1300px) {
+         @apply -left-20;
+      }
+   }
+
+   .swiper-button-next {
+      @apply -right-1.5 xl:-right-16;
+
+      @media screen and (min-width: 1300px) {
+         @apply -right-20;
+      }
+   }
+}
+
+.swiper-scrollbar.swiper-scrollbar {
+   background: none;
+
+   &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+
+      @apply bg-gray-200;
+   }
+
+   .swiper-scrollbar-drag {
+      z-index: 5;
+
+      @apply bg-primary rounded-none;
+   }
+}
+
+.tag-slider {
+   .swiper-slide {
+      width: auto;
+   }
+}
+
+.simplebar-track.simplebar-track.simplebar-vertical {
+   width: 9px;
+
+   &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      pointer-events: none;
+      transform: translateX(-50%);
+
+      @apply bg-gray-200;      
+   }
+}
+
+.simplebar-scrollbar.simplebar-scrollbar {
+   &:before {
+      border-radius: 0;
+
+      @apply bg-primary;
+   }
+
+   &.simplebar-visible {
+      &:before {
+         opacity: 1;
+      }
+   }
+}
+
+.simplebar-plain {
+   .simplebar-track.simplebar-vertical {
+      width: 13px;
+
+      &:before {
+         display: none;
+      }
+   }
+
+   .simplebar-scrollbar {
+      &:before {
+         border-radius: 5px;
+   
+         @apply bg-gray-300;
+      }
+   }
+}
+
+.filter-scroll {
+   max-height: 162px;
+   overflow-x: hidden;
+   overflow-y: auto;
+   -webkit-overflow-scrolling: touch;
+}
+
+.icon-list {
+   padding-left: 1.875rem;
+   list-style: none;
+
+   li {
+      position: relative;
+      margin-bottom: .875rem;
+      
+      &:before {
+         content: '';
+         display: inline-block;
+         position: relative;
+         top: 1px;
+         left: -30px;
+         margin-right: -1em;
+         width: 1em;
+         height: 1em;
+         background: url(../images/icon-chevron-right.svg) center no-repeat;
+         background-size: contain;
+      }
+   }
+  
+}
+
+.download-link {
+   padding-left: 20px;
+
+   @apply
+      text-base
+      font-extrabold;
+
+   &:before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      left: -20px;
+      margin-right: -1em;
+      width: 1em;
+      height: 1em;
+      background: url(../images/icon-chevron-right.svg) center no-repeat;
+      background-size: contain;
+   }
+}
+
+.close {
+   display: block;
+   position: relative;
+   width: 21px;
+   height: 21px;
+   cursor: pointer;
+
+   &:hover {
+      &:before, &:after {
+         @apply bg-black;
+      }
+   }
+
+   &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      transform: translate(-50%, -50%) rotate(45deg);
+
+      @apply bg-primary transition;
+   }
+
+   &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+   }
+}
+
+.touch-scroll {
+   -webkit-overflow-scrolling: touch;
+}
+
+.pagination {
+
+   &__item {
+      @apply w-10 h-10;
+
+      @media screen and (min-width: 375px) {
+         @apply w-13 h-13;
+      }
+   }
+}

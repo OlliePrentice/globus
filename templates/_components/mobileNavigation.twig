@@ -1,0 +1,111 @@
+
+{#
+   Navigation
+   Site header navigation
+
+   @type {include}
+
+#}
+
+{% set navigation = [
+    {'href': '/', 'title': 'Products',
+        'subLinks': [
+            {'href': '/', 'title': 'All Products',
+                'subLinks': [
+                    {'href': '/', 'title': 'All Products'},
+                    {'href': '/', 'title': 'Safety Eyewear'},
+                    {'href': '/', 'title': 'Hand Protection'},
+                    {'href': '/', 'title': 'Head Protection'},
+                    {'href': '/', 'title': 'Hearing Protection'},
+                    {'href': '/', 'title': 'Safety Footwear'},
+                    {'href': '/', 'title': 'Respiratory Protection'},
+                    {'href': '/', 'title': 'Protective Clothing'}
+                ]
+            },
+            {'href': '/', 'title': 'By Industry',
+                'subLinks': [
+                    {'href': '/', 'title': 'Aerospace'},
+                    {'href': '/', 'title': 'Automotive'},
+                    {'href': '/', 'title': 'Chemicals'},
+                    {'href': '/', 'title': 'Construction'},
+                    {'href': '/', 'title': 'Education & Research'},
+                    {'href': '/', 'title': 'Facility Management'},
+                    {'href': '/', 'title': 'Food Production'},
+                    {'href': '/', 'title': 'Healthcare'},
+                    {'href': '/', 'title': 'Highways & Infrastructure'},
+                    {'href': '/', 'title': 'Home & Garden'},
+                    {'href': '/', 'title': 'Manufacturing'},
+                    {'href': '/', 'title': 'Oil & Gas'},
+                    {'href': '/', 'title': 'Ports'},
+                    {'href': '/', 'title': 'Steels and Metals'},
+                    {'href': '/', 'title': 'Utilities'},
+                    {'href': '/', 'title': 'Waste & Recycling'}
+                ]    
+            },
+            {'href': '/', 'title': 'By Brand',
+              'subLinks': [
+                    {'href': '/', 'title': 'Showa'},
+                    {'href': '/', 'title': 'Skytec'},
+                    {'href': '/', 'title': 'Enha'},
+                    {'href': '/', 'title': 'Riley'},
+                    {'href': '/', 'title': 'Alpha Solway'},
+                    {'href': '/', 'title': 'Haika'},
+                ]
+            }
+        ]
+    }, 
+    {'href': '/', 'title': 'Brands'},
+    {'href': '/', 'title': 'About'},
+    {'href': '/', 'title': 'Newsroom'},
+    {'href': '/', 'title': 'Contact'},
+] %}
+
+{% set liClass = '
+    text-black
+    font-medium
+    text-lsm
+' %}
+
+<nav class="mobile-navigation remove-underline remove-bullets fixed z-50 bg-white"  x-bind:class="{ 'active': (mobileMenuOpen && ! mobileSearchOpen)  }">
+    <ul class="mb-0 pt-8 pb-24 min-h-full">
+        {% for item in navigation %}
+            <li class="{{ liClass }} {% if item.subLinks is defined %}has-children{% endif %}"><a href="{{ item.href }}" class="block py-3 text-2xl font-bold text-black hover:text-primary">{{ item.title }}</a>
+                {% if item.subLinks is defined %}
+
+                    <ul class="mb-0 sub-menu">
+                        {% for childItem in item.subLinks %}
+                            <li class="{% if childItem.subLinks is defined %}has-children{% endif %}">
+                               
+                                <a href="{{ childItem.href }}" class="block py-3 text-2xl font-bold text-black hover:text-primary">{{ childItem.title }}</a>
+                                {% if childItem.subLinks is defined %}
+                                    <ul class="mb-0 sub-menu">
+                                        <li class=" {{ liClass }} px-5 mb-6"><a href="#" class="border-b border-gray-200 font-extrabold text-black hover:text-primary py-4 back-link">{{ childItem.title }}</a></li>
+                                        {% for grandChildItem in childItem.subLinks %}
+                                            <li class="mb-2 {{ liClass }} px-10"><a href="{{ grandChildItem.href }}" class="font-medium text-gray-700 hover:text-primary">{{ grandChildItem.title }}</a></li>
+                                        {% endfor %}
+                                        <li>
+                                            <div class="img-full pt-10 max-w-lg mx-auto">
+                                                {% include '_components/card/cardMenu' with {'link': {'url': '#', 'target': ''}, 'image': craft.assets().filename('nav-image.jpg').one(), 'title': 'Alpha Flow 2000', 'subtitle': 'Alpha Solway'} %}
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                        
+                            </li>
+                        {% endfor %}
+                        <li>
+                            <div class="img-full pt-10 max-w-lg mx-auto">
+                                {% include '_components/card/cardMenu' with {'link': {'url': '#', 'target': ''}, 'image': craft.assets().filename('nav-image.jpg').one(), 'title': 'Alpha Flow 2000', 'subtitle': 'Alpha Solway'} %}
+                            </div>
+    
+                        </li>
+                    </ul>
+                        
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="absolute z-20 bottom-0 left-0 w-full z-40 whitespace-nowrap">
+        {% include '_components/headerCta' %}
+    </div>
+</nav>

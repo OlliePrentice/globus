@@ -1,0 +1,36 @@
+.navigation {
+
+    .has-children {
+        &.active {
+            > .meganav {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__card {
+        min-width: 355px;
+        max-width: 355px;
+    }
+
+}
+
+.meganav {
+    top: calc(100% - 1px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100vh - 86px);
+
+    &__grandlist {
+        max-width: 360px;
+        column-gap: 10px;
+
+    }
+
+}

@@ -1,0 +1,62 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Enha', 'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one()}} %}
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one(),
+        'logo': {'url': siteUrl ~ 'uploads/images/ENHA.svg', 'alt': 'enha'},
+        'content': '<p>ENHA develop high-quality head protection products, with the customer at the heart of everything we do. ENHA has a strong heritage, stretching back over 30 years of German engineering.</p>
+                    <p>Our head protection range incorporates patented, award winning technology, providing superior performance and safety for the wearer.</p>',
+        'link': {'url': '#', 'title': 'View Our Products'},
+        'reverse': true
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-14 lg:py-20', 'data': contentImageOne} %}
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('RLY-APP-STREAM-EVO.jpg').one(),
+        'title': 'About Enha',
+        'content': '<p>ENHA has been part of the Globus Group since 2017. Globus Group is one of the world’s fastest growing manufacturers and providers of worker safety solutions across Hand Protection, Safety Eyewear, Hearing Protection, Chemical Resistant Cslothing and Respiratory Protection.</p>',
+        'link': {'url': '#', 'title': 'Download Our Catalogue'},
+   
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageTwo} %}
+
+    
+    {% set contentImageThree = {
+        'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one(),
+        'title': 'Our History',
+        'content': '<p>In addition to the ENHA brand, Globus Group offers innovative and high-quality solutions through our trusted brands such as ALPHA SOLWAY® and RILEY®. Our brand portfolio is renowned throughout the industry and we pride ourselves in bringing customers cutting edge, innovative products underpinned by quality and value, always with the wearer as first priority.</p>',
+        'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageThree} %}
+
+    {% set productCarouselData = {
+        'title': 'Shop Enha Products',
+        'type' : 'product',
+        'items': [
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one(), 'tag': 'New in'},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+            {'href': '#', 'title': 'AREZZO™', 'subtitle': 'Enha', 'image': craft.assets().filename('ENHRADV6APSP_ENH00010_Z_P1_FLIPPED.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'pb-20 lg:pb-28', 'data': productCarouselData} %}
+
+    {% include '_layout/block' with {'block': 'bannerBackground', 'blockClass': 'pb-10', 'container': false} %}
+
+{% endblock %}

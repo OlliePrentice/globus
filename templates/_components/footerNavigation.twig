@@ -1,0 +1,96 @@
+
+{#
+   Footer Navigtaion
+
+   @type {include}
+
+#}
+
+
+{% set liClass = '
+    mb-3
+    text-sm
+    tracking-wide
+    leading-tight
+' 
+%}
+
+{% set topLinkClass = '
+    inline-block
+    mb-3
+    text-black
+    font-bold
+    leading-relaxed
+'
+%}
+
+{% set subLinkClass = '
+    text-gray-700
+    font-medium
+    hover:text-primary
+'
+%}
+
+
+{% set nav = [
+    {'href': '#', 'title': 'Explore',
+        'subLinks': [
+            {'href': '#', 'title': 'About Us'},
+            {'href': '#', 'title': 'Careers'},
+            {'href': '#', 'title': 'Awards'},
+            {'href': '#', 'title': 'Sustainability'},
+            {'href': '#', 'title': 'Newsroom'},
+        ]
+    },
+    {'href': '#', 'title': 'Resources',
+        'subLinks': [
+            {'href': '#', 'title': 'Datasheets'},
+            {'href': '#', 'title': 'Certificates'},
+            {'href': '#', 'title': 'Safety Standards'},
+        ]
+    },
+    {'href': '#', 'title': 'Need Help?',
+        'subLinks': [
+            {'href': '#', 'title': 'Contact Us'},
+            {'href': '#', 'title': '+44 (0)161 877 4747', 'class': '!underline text-primary hover:text-black'},
+            {'href': '#', 'title': 'sales@globus.co.uk', 'class': '!underline text-primary hover:text-black'},
+        ]
+    },
+    {'href': '#', 'title': 'Follow Us',
+        'subLinks': [
+            {'href': '#', 'title': 'Facebook', 'icon': 'icon-facebook.svg'},
+            {'href': '#', 'title': 'Twitter', 'icon': 'icon-twitter.svg'},
+            {'href': '#', 'title': 'Instagram', 'icon': 'icon-instagram.svg'},
+            {'href': '#', 'title': 'Youtube', 'icon': 'icon-youtube.svg'},
+        ]
+    }
+]
+%}
+
+<nav>
+    <ul class="flex flex-wrap justify-between -mx-2.5  mb-0">
+        {% for item in nav %}
+            <li class="{{ liClass }} px-2.5 mb-0 w-1/2 md:w-auto pb-6 md:pb-0">
+                <a href="{{ item.href }}" class="{{ topLinkClass }}">{{ item.title }}</a>
+                {% if item.subLinks is defined %}
+                    <ul class="mb-0">
+                        {% for subItem in item.subLinks %}
+                            <li class="{{ liClass }}{% if subItem.icon is defined %}inline-block mr-1 md:mr-1.5 last:mr-0 {% endif %}">
+                                <a href="{{ subItem.href }}" class="{{ subLinkClass }}{% if subItem.class is defined %}{{ subItem.class }}{% endif %}">
+                                    
+                                    {% if subItem.icon is defined %}
+                                        <span class="bg-primary rounded-full inline-block w-9 h-9 flex items-center justify-center hover:bg-black transition">
+                                            {% include '_components/picture' with {'image': {'title': subItem.title, 'url': siteUrl ~ 'dist/images/' ~ subItem.icon, 'extension': 'svg'}} %}
+                                        </span>
+                                    {% else %}
+                                        {{ subItem.title }}
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

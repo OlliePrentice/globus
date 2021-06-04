@@ -1,0 +1,88 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'postHeader', 'blockClass': 'pt-14 lg:pt-20'} %}
+
+    {% set textContentOne = {
+        'content': 
+        '
+        <p><strong>Leading international PPE firm Globus Group has today (28.04) committed to further strengthening its resilient PPE supply chain as part of World Day for Health & Safety at Work 2021.</strong></p>
+        <p>To mark the day, Globus has reaffirmed its strategy to create resilient operations and a smooth supply chain, by committing to make 75% of its PPE products here in the UK. This acceleration in UK-production will create 1,000 jobs across all the company\'s UK facilities by the end of 2021.</p>
+        <p>The Covid-19 pandemic catapulted PPE into the headlines and brought major challenges to numerous sectors. The industrial market virtually closed down overnight, while the construction industry and many manufacturing businesses were forced to halt work.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'pb-14 lg:pb-20', 'data': textContentOne} %}
+
+    {% include '_layout/block' with {'block': 'imageSingle', 'blockClass': 'pb-14 lg:pb-20', 'data': {'image': craft.assets().filename('ALP-APP-H-Series-0920_1.jpg').one()} } %}
+
+    {% set textContentTwo = {
+        'content': 
+        '
+        <h4>Committed to a Sustainable Future</h4>
+        <p>With the healthcare demand for PPE escalating it became clear that there were products in circulation globally which were of poor quality or not certified. These unprecedented circumstances led Globus to quickly adapt and expand its manufacturing operations for the healthcare sector.</p>
+        <p>With its 25-year heritage of manufacturing high-quality, innovative PPE products, Globus chose the responsible path of long-term investment in quality. This supports the company\'s aim of cementing viable British manufacturing to ensure the reliability of supply and performance, with the added benefits of pricing stability and UK job creation.</p>
+        <p>As the largest British-based manufacturer of PPE and worker safety solutions, Globus Group continues to strengthen its health and safety systems to keep workers across the UK protected. This is part of a wider initiative to ensure the UK never again ends up in the perilous position it was in last Spring.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'pb-14 lg:pb-20', 'data': textContentTwo} %}
+
+    {% include '_layout/block' with {'block': 'imageDouble', 'blockClass': 'pb-14 lg:pb-20', 'data': {'images': [craft.assets().filename('ALPHA-FLOW-AMF-3V_12-16.jpg').one(), craft.assets().filename('ppe-clothing.jpg').one()]} } %}
+
+    {% set textContentThree = {
+        'content': 
+        '
+        <p><strong>Steven Binnie, Director of Alpha Solway, said:</strong> "The pandemic has changed the face of health & safety in all workplaces across the world. A resilient supply chain is therefore vital for future-proofing workplace protection. There is a real appetite for Made in the UK PPE products as customers recognise this as a strong indicator of performance quality, secure supply and excellent value.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'pb-14 lg:pb-20', 'data': textContentThree} %}
+
+    
+    {% set quote = {
+        'text': 
+        '
+        <p>"We are proud of the significant contribution we have made, and continue to make, to NHS efforts to fight the pandemic."</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'quote', 'blockClass': 'pb-14 lg:pb-20', 'data': quote} %}
+
+    {% set textContentFour = {
+        'content': 
+        '
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'pb-14 lg:pb-20', 'data': textContentFour} %}
+
+    {% set postCarouselData = {
+        'title': 'Continue Reading',
+        'type' : 'post',
+        'slidesPerView': 3,
+        'stackMobile': true,
+        'items': [
+            {'href': '#', 'title': 'Globus Group Marks World Day for Health and Safety At Work', 'image': craft.assets().filename('ALP-APP-H-Series-0920_1.jpg').one() },
+            {'href': '#', 'title': 'Dozens of permanent job positions secured in a matter of months at Globus Group', 'image': craft.assets().filename('ALP-APP-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'Saving lives ... And sweeping floors', 'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one()},
+            {'href': '#', 'title': 'Alpha Solway - SOSE investment partnership triggers PPE jobs boost', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Globus Group celebrates the first Made in UK Day', 'image': craft.assets().filename('ALP-APP-L1-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'PPE firm Globus Group takes steps to boost opportunities for women in the sector', 'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one()},
+            {'href': '#', 'title': 'Globus Group Marks World Day for Health and Safety At Work', 'image': craft.assets().filename('ALP-APP-H-Series-0920_1.jpg').one()},
+            {'href': '#', 'title': 'Dozens of permanent job positions secured in a matter of months at Globus Group', 'image': craft.assets().filename('ALP-APP-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'Saving lives … And sweeping floors', 'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one()},
+            {'href': '#', 'title': 'Alpha Solway - SOSE investment partnership triggers PPE jobs boost', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Globus Group celebrates the first Made in UK Day', 'image': craft.assets().filename('ALP-APP-L1-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'PPE firm Globus Group takes steps to boost opportunities for women in the sector', 'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one()},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'py-14 lg:py-28 bg-gray-100', 'data': postCarouselData} %}
+
+{% endblock %}

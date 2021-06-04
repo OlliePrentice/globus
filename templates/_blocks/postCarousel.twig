@@ -1,0 +1,55 @@
+ {#
+    Post Carousel
+    Carousel with posts
+
+    @type {include}
+    @param {string} title
+    @param {string} description
+    @param {object} items
+    @param {string} type
+    @param {int} slidesPerView
+    @param {bool} stackMobile
+
+#}
+
+{% set type = type is defined ? type | capitalize : 'Product' %}
+
+
+<div class="post-carousel relative wide-arrows remove-underline"  data-aos="fade">
+    <div class="max-w-2xl mx-auto text-center mb-12 lg:px-4">
+        {% if title is defined %}
+            <h5>{{ title }}</h5>
+        {% endif %}
+        {% if description is defined %}
+            <div>{{ description | raw }}</div>
+        {% endif %}
+    </div>
+    {% if items is defined %}
+        {% if stackMobile is defined %}
+        <div class="lg:hidden">
+            {% for item in items | slice(0,3) %}
+                <div class="mb-10">
+                    {% include '_components/card/card' ~ type with item %}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="post-carousel__slider swiper-container {{ stackMobile is defined ? 'hidden lg:block' }}" {% if slidesPerView is defined %}data-slidesperview="{{ slidesPerView }}"{% endif %} {% if slidesPerView is defined %}data-slidesType="{{ type }}"{% endif %}>
+            <div class="swiper-wrapper pb-10 lg:pb-16">
+                {% for item in items %}
+                    <div class="swiper-slide">
+                        {% include '_components/card/card' ~ type with item %}
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <div class="swiper-scrollbar max-w-lg !left-1/2 transform -translate-x-1/2 hidden xl:block"></div>
+           
+        </div>
+    {% endif %}
+    
+    <div class="flex justify-center {{ stackMobile is defined ? 'hidden lg:flex' }}">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</div>

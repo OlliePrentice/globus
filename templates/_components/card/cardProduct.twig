@@ -1,0 +1,36 @@
+{#
+   Card Product
+   Card for displaying products
+
+   @type {include}
+   @param {object} href
+   @param {object} image
+   @param {string} title
+   @param {string} subtitle
+   @param {string} tag
+#}
+
+<div class="card-category text-left">
+    {% if href is defined %}
+        <a href="{{ href }}" class="block group">
+    {% endif %}
+            <div class="relative mb-4 overflow-hidden">
+                {% if tag is defined %}
+                    {% include '_components/tag/tagProduct' with {'tag': tag} %}
+                {% endif %}
+                {% if image is defined %}
+                    <div class="transition transform group-hover:scale-110">
+                        {% include '_components/picture' with {'image': image, 'transform': '1x1'} %}
+                    </div>
+                {% endif %}
+            </div>
+            {% if title is defined %}
+                <h5 class="text-md mb-1 text-black relative z-10">{{ title }}</h5>
+            {% endif %}
+            {% if subtitle is defined %}
+                <h5 class="leading-tight text-base mb-1 text-black relative z-10 font-extrabold">{{ subtitle }}</h5>
+            {% endif %}
+    {% if href is defined %}
+        </a>
+    {% endif %}
+</div>

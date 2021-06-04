@@ -1,0 +1,21 @@
+{#
+   Post Header
+   Heading with post categories
+
+   @type {include}
+
+#}
+
+
+
+<div class="post-header max-w-3xl mx-auto"  data-aos="fade">
+    <div class="pb-5">
+        <div class="inline-block mr-7 align-middle">
+            {% include '_components/tag/tagBasic' with {'text': '2 Min Read', 'icon': {'url': siteUrl ~ 'dist/images/icon-clock.svg', 'alt': 'clock'}} %}
+        </div>
+        <div class="inline-block align-middle">
+            {% include '_components/tag/tagBasic' with {'text': 'Category', 'icon': {'url': siteUrl ~ 'dist/images/icon-list.svg', 'alt': 'category'}} %}
+        </div>
+    </div>
+    <h1 class="text-5sxl mb-8">Globus Group Marks World Day for Health and Safety At Work</h1>
+</div>

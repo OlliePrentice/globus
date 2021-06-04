@@ -1,0 +1,48 @@
+{#
+   Header
+   Site header banner
+
+   @type {include}
+
+#}
+
+<header class="main-header fixed z-50 top-0 left-0 w-full remove-bullets remove-underline"  x-bind:class="{ 'mobile-menu-active': (mobileMenuOpen || mobileSearchOpen) }">
+    <div class="px-5 sm:px-6 lg:px-10 flex items-center border-b border-gray-200 bg-white">
+        <div class="w-full">
+            <div class="flex flex-wrap items-center justify-between -mx-2.5">
+                <div class="px-2.5 flex-1"  x-bind:class="{ 'hidden lg:block': mobileSearchOpen }">
+                    <a href="/" class="inline-block">
+                        {% include '_components/picture' with {'image': {'title': 'Logo', 'url': siteUrl ~ 'dist/images/logo.svg', 'extension': 'svg'}} %}
+                    </a>
+                </div>
+                <div class="px-2.5 hidden lg:block">
+                    {% include '_components/navigation' %}
+                </div>
+                <div class="px-2.5 flex-1 lg:text-right">
+                    <div x-bind:class="{ 'hidden': mobileSearchOpen }" class="lg:hidden">
+                        {% include '_components/mobileHeaderActions' %}
+                    </div>
+                    <div x-bind:class="{ 'hidden lg:block': ! mobileSearchOpen }">
+                        <div class="flex items-center -mx-2.5">
+                            <div class="px-2.5 flex-1">
+                                {% include '_components/searchBar' %}
+                            </div>
+                            <div class="px-2.5 lg:hidden">
+                                <span class="close mobile-search-close" x-on:click="mobileSearchOpen = ! mobileSearchOpen"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% include '_components/liveSearch' %}
+
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute z-20 top-full left-0 w-full">
+        {% include '_components/headerCta' %}
+    </div>
+</header>
+
+ {% include '_components/mobileNavigation' %}

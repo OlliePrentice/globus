@@ -1,0 +1,42 @@
+{#
+    Content diagram
+    Content and diagram
+
+    @type {include}
+    @param {object} image
+    @param {string} title
+    @param {string} content
+    @param {object} link
+    @param {bool} reverse
+
+#}
+
+{% set reverse = reverse is defined ? reverse : false %}
+
+<div class="content-diagram"  data-aos="fade">
+    <div class="flex flex-wrap items-center -mx-2.5 {{ reverse ? 'flex-row-reverse' }}">
+        <div class="px-2.5 w-full lg:w-5/12 mb-8 lg:mb-0">
+            <div class="max-w-md">
+                {% if title is defined %}
+                    <h4>{{ title }}</h4>
+                {% endif %}
+                {% if content is defined %}
+                    <div>{{ content | raw }}</div>
+                {% endif %}
+                {% if link is defined %}
+                    <div class="pt-6">
+                        <a href="{{ link.url }}" class="link">{{ link.title }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="px-2.5 w-full lg:w-7/12">
+            {% if image is defined %}
+                <div>
+                    <img data-src="{{ image.url }}" {% if image.alt is defined %}alt="{{ image.alt }}"{% endif %} class="lazy-load {{ reverse ? '' : 'lg:ml-auto' }}">
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

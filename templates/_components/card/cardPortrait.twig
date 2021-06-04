@@ -1,0 +1,34 @@
+{#
+   Card Portrait
+   Card for displaying categories or pages
+
+   @type {include}
+   @param {object} href
+   @param {object} image
+   @param {string} title
+#}
+
+{% set imageSize = {
+    mode: 'crop',
+    width: 260,
+    height: 365,
+    quality: 75,
+    position: 'center'
+} %}
+
+<div class="card-portrait">
+    {% if href is defined %}
+        <a href="{{ href }}" class="block min-h-inherit group">
+    {% endif %}
+        <div class="min-h-inherit relative px-4 md:px-7 py-2.5 md:py-4 flex items-end overflow-hidden">
+            {% if image is defined %}
+                <div data-bg="{{ image.getUrl(imageSize) }}" class="lazy-load min-h-inherit w-full h-full absolute top-0 left-0 transform group-hover:scale-110"></div>
+            {% endif %}
+            {% if title is defined %}
+                <h5 class="mb-1 relative z-10 font-semibold text-lg text-white">{{ title }}</h5>
+            {% endif %}
+        </div>
+    {% if href is defined %}
+        </a>
+    {% endif %}
+</div>

@@ -1,0 +1,66 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Sustainability', 'image': craft.assets().filename('ALP-APP-CHEMASTER.jpg').one()}} %}
+
+    {% set textContentOne = {
+        'content': 
+        '
+        <h4>Committed to a Sustainable Future</h4>
+        <p>At Globus Group, we are passionate about protecting our customers, enabling them to do their jobs safely and empowering them to do the best they possibly can.</p>
+        <p class="text-black"><strong>We’re equally passionate about protecting our planet.</strong></p>
+        <p>It’s our duty to future generations and we take it very seriously. We have over a quarter of a century of heritage in providing high quality-health and safety solutions, so we truly appreciate the importance of thinking long term. And we understand the REAL meaning and value of sustainability.</p>
+        ',
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'py-14 lg:py-20', 'data': textContentOne} %}
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('sustainability.jpg').one(),
+        'title': 'Resilience and Sustainability',
+        'content': '<p>A key strategy for Globus is to manufacture 75% of our products in the UK. These plans have been accelerated by the COVID-19 crisis, and, we have commissioned two new factories in England and Scotland creating hundreds of new UK jobs.</p>
+                    <p>The substantial increase in local production rather than Far East manufacture is having and will continue to have a significant impact on our carbon footprint. The importance of control and resilience in local manufacture means we are already making good strides in driving efficiency and reducing waste.</p>
+        ',
+        'link': {'url': '#', 'title': 'Learn More'},
+           'reverse': true
+     
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-14 lg:pb-20', 'data': contentImageOne} %}
+
+
+    {% set stepCarousel = {
+        'title': 'Towards Zero',
+        'description': '<p>In recent years, we have made some significant steps on the journey towards reducing our carbon footprint. <strong class="text-black">This means we have:</strong></p>',
+        'type' : 'numbered',
+        'slidesPerView': 3,
+        'items': [
+            {'title': 'Increased local production', 'description': '<p>through substantial investment in UK facilities. As well as supporting local communities and creating jobs, this has a significant impact on our carbon footprint.</p>'},
+            {'title': 'Moved our headquarters', 'description': '<p>to a more energy-efficient building, which gives us double the space with only half the energy consumption</p>'},
+            {'title': 'Installed LED lighting', 'description': '<p>and motion sensors to reduce energy consumption and light pollution</p>'},
+            {'title': 'Increased local production', 'description': '<p>through substantial investment in UK facilities. As well as supporting local communities and creating jobs, this has a significant impact on our carbon footprint.</p>'},
+            {'title': 'Moved our headquarters', 'description': '<p>to a more energy-efficient building, which gives us double the space with only half the energy consumption</p>'},
+            {'title': 'Installed LED lighting', 'description': '<p>and motion sensors to reduce energy consumption and light pollution</p>'},
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'postCarousel', 'blockClass': 'py-16 lg:py-28 bg-gray-100', 'data': stepCarousel} %}
+
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('SKY-APP-STREAM EVO.jpg').one(),
+        'title': 'Our Products and Packaging',
+        'content': '<p>As part of our overarching strategy, we are committed to bringing more sustainable solutions into our product range, our manufacturing processes and distribution. Safety and protection must remain at the core, but through investment in innovation and technology throughout the supply chain, we are finding new solutions to reduce the environmental impact. Enhancing sustainability without sacrificing quality.</p>
+                    <p>We are reviewing our whole product range to reduce our use of packaging and single-use plastics wherever possible.</p>
+        ',
+           'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-20', 'data': contentImageTwo} %}
+
+{% endblock %}

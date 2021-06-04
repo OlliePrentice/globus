@@ -1,0 +1,30 @@
+{#
+   Card Menu
+   Card for displaying posts in the header
+
+   @type {include}
+   @param {object} link
+   @param {object} image
+   @param {string} title
+   @param {string} subtitle
+#}
+
+<div class="card-menu">
+    {% if link is defined %}
+        <a href="{{ link.url }}" target="{{ link.target }}" class="block">
+    {% endif %}
+            {% if image is defined %}
+                <div class="mb-4">
+                    {% include '_components/picture' with {'image': image, 'transform': 'imageNav'} %}
+                </div>
+            {% endif %}
+            {% if title is defined %}
+                <h5 class="font-medium text-md mb-1 text-black">{{ title }}</h5>
+            {% endif %}
+            {% if subtitle is defined %}
+                <span class="font-extrabold text-base text-black tracking-wide">{{ subtitle }}</span>
+            {% endif %}
+    {% if link is defined %}
+        </a>
+    {% endif %}
+</div>

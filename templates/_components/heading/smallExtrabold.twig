@@ -1,0 +1,12 @@
+ {#
+    Small Extra Bold
+    Small heading
+
+    @type {include}
+    @param {string} heading
+
+#}
+
+{% if heading is defined %}
+    <h6 class="block text-black text-base font-extrabold tracking-wide mb-1">{{ heading }}</h6>
+{% endif %}

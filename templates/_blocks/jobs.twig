@@ -1,0 +1,22 @@
+{#
+   Jobs
+   Heading and logos
+
+   @type {include}
+
+#}
+
+<div class="jobs border-t border-b sm:border border-gray-200 -mx-5 sm:mx-auto px-5 lg:px-16 py-14 max-w-4xl "  data-aos="fade">
+    <div class="lg:px-2">
+        <div class="sm:px-5">
+            <h4 class="mb-8">Current Open Positions</h4>
+        </div>
+        
+        <div class="border-t border-gray-200 sm:px-5 py-10">
+            {% include '_components/card/cardJob' with {'title': 'Product Sales Specialist - ENHA', 'excerpt': 'We\'re delighted to add a Product Sales Specialist role to our existing sales team focusing on our ENHA brand driving the', 'href': '#'} %}
+        </div>
+        <div class="border-t border-gray-200 sm:px-5 pt-10">
+            {% include '_components/card/cardJob' with {'title': 'Product Sales Specialist - Riley', 'excerpt': 'We\'re delighted to add a Product Sales Specialist role to our existing sales team focusing on our ENHA brand driving the', 'href': '#'} %}
+        </div>
+    </div>
+</div>

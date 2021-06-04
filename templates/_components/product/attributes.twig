@@ -1,0 +1,23 @@
+ {#
+    Attributes
+    Displays product attributes
+
+    @type {include}
+    @param {string} label
+    @param {string} attribute
+
+#}
+
+<div>
+    {% if label is defined %}
+        {% include '_components/heading/smallExtrabold' with {'heading': label} %}
+    {% endif %}
+    {% if attribute is defined %}
+        <div class="flex text-gray-800">
+            {% if attribute.icon is defined %}
+                <img src="{{ attribute.icon.url }}" alt="{{ attribute.icon.alt }}" class="mr-2">
+            {% endif %}
+            <span>{{ attribute.text }}</span>
+        </div>
+    {% endif %}
+</div>

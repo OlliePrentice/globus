@@ -1,0 +1,28 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% set products = {
+        'title': '72 Results for \'Gloves\'',
+        'items': [
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one(), 'tag': 'New in'},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Argon Xtra™', 'subtitle': 'Skytec', 'image': craft.assets().filename('SKY-ARGON.jpg').one()},
+
+        ]
+    }
+    
+    %}
+
+    {% include '_layout/block' with {'block': 'productLoop', 'blockClass': 'py-14 lg:py-20', 'data': products} %}
+
+{% endblock %}

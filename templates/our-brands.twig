@@ -1,0 +1,33 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Our Brands', 'image': craft.assets().filename('ALP-APP-2530V-0121.jpg').one()}} %}
+
+    {% set textContentOne = {
+        'content': 
+        '
+        <h4>Under the Globus Group we hold a diverse range of leading brands.</h4>
+        <p>Brands that deliver innovative personal protective solutions right across the spectrum of healthcare and industrial sectors. These cover a range of disciplines to enable people to perform safety and work effectively in their jobs.</p>
+        <p>Our brands provide global worker safety solutions for Hand Protection, Safety Eyewear, Head Protection, Hearing Protection and Respiratory Protection.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'py-14 lg:py-20', 'data': textContentOne} %}
+
+    {% set tilesItems = {
+        'items': [
+            {'image': {'url': siteUrl ~ 'uploads/images/Showa.svg', 'alt': 'Showa'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>SHOWA® is synonymous with the highest degree of hand protection and innovation. SHOWA technology has forever changed the protective..</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/Skytec.svg', 'alt': 'Skytec'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>Skytec® gloves deliver advanced hand protection for users in many different industries. The Skytec range will fulfil all your safety obligations..</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/ENHA.svg', 'alt': 'ENHA'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>ENHA develop high-quality head protection products, with the customer at the heart of everything we do.</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/Riley.svg', 'alt': 'Riley'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>Riley® offers a sophisticated range of high performing safety eyewear, comprising of safety glasses (including RX safety glasses)..</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/Alpha-Solway.svg', 'alt': 'Alpha Solway'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>Alpha Solway® is a UK-based manufacturer and supplier of world-blockClass respiratory protection, eye protection, hearing protection..</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/Haika.svg', 'alt': 'Haika'}, 'link': {'url': '#', 'title': 'Read More'}, 'text': '<p>rom intricate surgical procedures through to handling chemotherapy drugs, HAIKA® offers a comprehensive range of gloves for..</p>'}
+    ]}
+    %}
+
+    {% include '_layout/block' with {'block': 'tiles', 'blockClass': 'pt-16 pb-12 lg:pt-20 lg:pb-16 bg-gray-100', 'data': tilesItems} %}
+    
+    {% include '_layout/block' with {'block': 'bannerBackground', 'blockClass': 'pb-10 bg-gray-100', 'container': false} %}
+
+{% endblock %}

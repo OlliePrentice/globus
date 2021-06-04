@@ -1,0 +1,67 @@
+{#
+   Live Search
+   Live Search results and featured products
+
+   @type {include}
+
+#}
+
+{% set listClass = '
+    tracking-wide
+    text-sm
+    mb-2
+'
+%}
+
+{% set linkClass = '
+    live-search__item
+    text-gray-700
+    hover:text-primary
+' 
+%}
+
+{% set headingClass = '
+    mb-6
+    tracking-wide
+    text-sm
+    text-black
+    font-extrabold
+ 
+'
+%}
+
+<div class="live-search absolute top-full right-0 w-full lg:w-auto z-50 lg:z-10 px-5 sm:px-6 lg:px-24 pt-10 sm:pt-16 lg:pt-28 bg-white text-left">
+    <span class="hidden lg:flex live-search__close absolute top-14 right-6 w-12 h-12 items-center justify-center cursor-pointer hover:bg-gray-100">{% include '_components/picture' with {'image': {'title': 'Close', 'url': siteUrl ~ 'dist/images/icon-times.svg', 'extension': 'svg'}} %}</span>
+    <div>
+        <div class="flex flex-wrap -mx-4 pb-20">
+            <div class="px-4 w-full lg:flex-1 order-2 lg:order-1">
+                <div class="w-full lg:max-w-2xl lg:pr-20">
+                    <h6 class="{{ headingClass }}">Featured Products</h6>
+                    <div class="swiper-container img-full live-search__carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                {% include '_components/card/cardMenu' with {'link': {'url': '#', 'target': ''}, 'image': craft.assets().filename('nav-image.jpg').one(), 'title': 'Alpha Flow 2000', 'subtitle': 'Alpha Solway'} %}
+                            </div>
+                            <div class="swiper-slide">
+                                {% include '_components/card/cardMenu' with {'link': {'url': '#', 'target': ''}, 'image': craft.assets().filename('gloves.jpg').one(), 'title': 'Alpha Flow 2000', 'subtitle': 'Alpha Solway'} %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 w-full lg:w-auto lg:order-2 lg:mb-0 mb-10">
+                <h6 class="{{ headingClass }} pb-3 border-b border-gray-200 lg:border-none lg:pb-0">Top Searches</h6>
+                <ul class="live-search__results">
+                    <li class="{{ listClass }}"><a href="#" class="{{ linkClass }}">All Gloves</a></li>
+                    <li class="{{ listClass }}"><a href="#" class="{{ linkClass }}">Material Gloves</a></li>
+                    <li class="{{ listClass }}"><a href="#" class="{{ linkClass }}">Latex Gloves</a></li>
+                    <li class="{{ listClass }}"><a href="#" class="{{ linkClass }}">Showa Gloves</a></li>
+                    <li class="{{ listClass }}"><a href="#" class="{{ linkClass }}">Skytec Gloves</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="-mx-5 lg:hidden">
+            {% include '_components/headerCta' %}
+        </div>
+    </div>
+</div>

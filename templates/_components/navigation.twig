@@ -1,0 +1,111 @@
+
+{#
+   Navigation
+   Site header navigation
+
+   @type {include}
+
+#}
+
+{% set navigation = [
+    {'href': '/', 'title': 'Products',
+        'subLinks': [
+            {'href': '/', 'title': 'All Products', 'columns': 1,
+                'subLinks': [
+                    {'href': '/', 'title': 'All Products'},
+                    {'href': '/', 'title': 'Safety Eyewear'},
+                    {'href': '/', 'title': 'Hand Protection'},
+                    {'href': '/', 'title': 'Head Protection'},
+                    {'href': '/', 'title': 'Hearing Protection'},
+                    {'href': '/', 'title': 'Safety Footwear'},
+                    {'href': '/', 'title': 'Respiratory Protection'},
+                    {'href': '/', 'title': 'Protective Clothing'}
+                ]
+            },
+            {'href': '/', 'title': 'By Industry', 'columns': 2,
+                'subLinks': [
+                    {'href': '/', 'title': 'Aerospace'},
+                    {'href': '/', 'title': 'Automotive'},
+                    {'href': '/', 'title': 'Chemicals'},
+                    {'href': '/', 'title': 'Construction'},
+                    {'href': '/', 'title': 'Education & Research'},
+                    {'href': '/', 'title': 'Facility Management'},
+                    {'href': '/', 'title': 'Food Production'},
+                    {'href': '/', 'title': 'Healthcare'},
+                    {'href': '/', 'title': 'Highways & Infrastructure'},
+                    {'href': '/', 'title': 'Home & Garden'},
+                    {'href': '/', 'title': 'Manufacturing'},
+                    {'href': '/', 'title': 'Oil & Gas'},
+                    {'href': '/', 'title': 'Ports'},
+                    {'href': '/', 'title': 'Steels and Metals'},
+                    {'href': '/', 'title': 'Utilities'},
+                    {'href': '/', 'title': 'Waste & Recycling'}
+                ]    
+            },
+            {'href': '/', 'title': 'By Brand', 'columns': 1,
+              'subLinks': [
+                    {'href': '/', 'title': 'Showa'},
+                    {'href': '/', 'title': 'Skytec'},
+                    {'href': '/', 'title': 'Enha'},
+                    {'href': '/', 'title': 'Riley'},
+                    {'href': '/', 'title': 'Alpha Solway'},
+                    {'href': '/', 'title': 'Haika'},
+                ]
+            }
+        ]
+    }, 
+    {'href': '/', 'title': 'Brands'},
+    {'href': '/', 'title': 'About'},
+    {'href': '/', 'title': 'Newsroom'},
+    {'href': '/', 'title': 'Contact'},
+] %}
+
+{% set liClass = '
+    text-black
+    font-medium
+    text-sm
+' %}
+
+<nav class="navigation">
+    <ul class="flex mb-0">
+        {% for item in navigation %}
+            <li class="{{ liClass }} px-6 mb-0 {% if item.subLinks is defined %}has-children{% endif %}"><a href="{{ item.href }}" class="block py-8 text-black hover:text-primary">{{ item.title }}</a>
+                {% if item.subLinks is defined %}
+                    <div class="meganav absolute z-30 left-0 w-full border-t border-gray-200 bg-white">
+                        <div class="px-10 py-16">
+                            <div class="max-w-7xl mx-auto">
+                                <div class="flex -mx-4">
+                                    <div class="px-4 flex-1">
+                                        <ul class="flex flex-wrap w-full -mx-4 mb-0">
+                                            {% for childItem in item.subLinks %}
+                                                <li class="px-4 flex-auto {% if childItem.subLinks is defined %}has-children{% endif %}">
+                                                    <div class="inline-block">
+                                                    <a href="{{ childItem.href }}" class="font-extrabold inline-block mb-2 text-black">{{ childItem.title }}</a>
+                                                    {% if childItem.subLinks is defined %}
+                                                        <ul class="meganav__grandlist pt-3 border-t border-gray-200 mb-0 columns-{{ childItem.columns }}">
+                                                            {% for grandChildItem in childItem.subLinks %}
+                                                                <li class="meganav__granditem mb-2 {{ liClass }}"><a href="{{ grandChildItem.href }}" class="font-medium text-gray-700 hover:text-primary">{{ grandChildItem.title }}</a></li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    {% endif %}
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="px-4">
+                                        <div class="navigation__card img-full">
+                                            {% include '_components/card/cardMenu' with {'link': {'url': '#', 'target': ''}, 'image': craft.assets().filename('nav-image.jpg').one(), 'title': 'Alpha Flow 2000', 'subtitle': 'Alpha Solway'} %}
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% include '_components/headerCta' %}
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

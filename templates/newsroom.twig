@@ -1,0 +1,30 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Newsroom', 'image':  craft.assets().filename('newsroom.jpg').one()}} %}
+
+    {% set posts = {
+        'items': [
+            {'href': '#', 'title': 'Globus Group Marks World Day for Health and Safety At Work', 'image': craft.assets().filename('ALP-APP-H-Series-0920_1.jpg').one() },
+            {'href': '#', 'title': 'Dozens of permanent job positions secured in a matter of months at Globus Group', 'image': craft.assets().filename('ALP-APP-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'Saving lives ... And sweeping floors', 'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one()},
+            {'href': '#', 'title': 'Alpha Solway - SOSE investment partnership triggers PPE jobs boost', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Globus Group celebrates the first Made in UK Day', 'image': craft.assets().filename('ALP-APP-L1-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'PPE firm Globus Group takes steps to boost opportunities for women in the sector', 'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one()},
+            {'href': '#', 'title': 'Globus Group Marks World Day for Health and Safety At Work', 'image': craft.assets().filename('ALP-APP-H-Series-0920_1.jpg').one()},
+            {'href': '#', 'title': 'Dozens of permanent job positions secured in a matter of months at Globus Group', 'image': craft.assets().filename('ALP-APP-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'Saving lives … And sweeping floors', 'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one()},
+            {'href': '#', 'title': 'Alpha Solway - SOSE investment partnership triggers PPE jobs boost', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()},
+            {'href': '#', 'title': 'Globus Group celebrates the first Made in UK Day', 'image': craft.assets().filename('ALP-APP-L1-CHEMASTER.jpg').one()},
+            {'href': '#', 'title': 'PPE firm Globus Group takes steps to boost opportunities for women in the sector', 'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one()},
+        ]
+    }
+    
+    %}
+         
+            
+
+    {% include '_layout/block' with {'block': 'postLoop', 'blockClass': 'py-14 lg:py-20', 'data': posts} %}
+
+{% endblock %}

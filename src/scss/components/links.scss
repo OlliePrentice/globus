@@ -1,0 +1,12 @@
+.link {
+    @apply transition;
+    &--primary {
+        @apply 
+            text-primary 
+            underline;
+        &:hover,
+        &:active {
+            @apply text-black;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'About us', 'image': craft.assets().filename('ALP-APP-2530V-0121.jpg').one()}} %}
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one(),
+        'title': 'Who we are',
+        'content': '<p>At Globus Group, people are at the heart of everything we do. Our products are integral to our customers, enabling them to perform in their role safely, giving them the ability to do the best job they possibly can. We are a UK business with a strong heritage in providing high-quality health and safety solutions to the healthcare and industrial sectors. We have been protecting people for over 25 years and our responsibilities continue during the pandemic, strengthening resilience of supply.</p>',
+        'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pt-14 lg:pt-20', 'data': contentImageOne} %}
+
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('ALP-APP-L1-CHEMASTER.jpg').one(),
+        'title': 'What we do',
+        'content': '<p>Globus Group is one of the world’s leading manufacturers of global worker safety solutions for Hand Protection, Safety Eyewear, Head Protection, Hearing Protection and Respiratory Protection.</p>
+                    <p>With a unique style and identity, our solutions are bespoke and built upon the cornerstones of protection, ‘wearability’, compliance and productivity. Our UK manufacturing sites not only allow us to adapt to changing requirements easily, they are also pivotal in creating innovative solutions, which are quick to market.</p>',
+        
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pt-14 lg:pt-20', 'data': contentImageTwo} %}
+
+    {% set contentImageThree = {
+        'image': craft.assets().filename('SKY-APP-ARGON.jpg').one(),
+        'title': 'Why we do it',
+        'content': '<p>At Globus, we believe in the safety, reliability and wearability of our products. We are proud to protect our customers in their working lives, equipping them to perform their roles safely and empowering them to do the best job possible. As well as providing safety products that our customers trust, our collaborative approach sets us apart. We believe in building lifetime relationships with our customers and being there to respond to their changing requirements.</p>',
+        'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-14 lg:py-20', 'data': contentImageThree} %}
+
+
+    {% set contentDiagram = {
+        'image': {'url': siteUrl ~ 'uploads/images/PPE_Sector_Graphic_lnl0jf.png', 'alt': 'ppe'},
+        'title': 'A world of personal protective equipment solutions',
+        'content': '<p>Globus Group products keep wearers safe in many situations, across a spectrum of industries as well as at home. They meet and exceed a diverse range of personal protective equipment requirements from the rigours of heavy construction to the complexities of clean room and aerospace manufacturing.</p>',
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentDiagram', 'blockClass': 'py-20 bg-gray-100', 'containerClass': 'xl:max-w-8xl', 'data': contentDiagram} %}
+
+    {% include '_layout/block' with {'block': 'awards', 'blockClass': 'py-16'} %}
+
+{% endblock %}

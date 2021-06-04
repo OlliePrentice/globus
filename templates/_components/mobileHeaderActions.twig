@@ -1,0 +1,29 @@
+
+{#
+   Navigation
+   Site header navigation
+
+   @type {include}
+
+#}
+
+<div class="header-actions flex item-center justify-end -mx-2.5  text-zero">
+    <div class="px-2.5">
+        <button type="button" class="text-primary hover:text-black"  x-on:click="mobileSearchOpen = ! mobileSearchOpen">
+            <svg width="17" height="17" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg"  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" fill="currentColor">
+                <g id="Artboard1" transform="matrix(1,0,0,1,-1801.88,-1876.27)">
+                    <g id="search" transform="matrix(4.16667,0,0,4.16667,-4588.13,1728.1)">
+                        <path d="M1546.15,48.536L1546.73,47.962C1546.85,47.843 1546.85,47.65 1546.73,47.531L1543.64,44.448C1543.59,44.39 1543.51,44.359 1543.43,44.359L1543.09,44.359C1543.89,43.433 1544.38,42.227 1544.38,40.906C1544.38,37.989 1542.01,35.625 1539.1,35.625C1536.18,35.625 1533.81,37.989 1533.81,40.906C1533.81,43.824 1536.18,46.188 1539.1,46.188C1540.42,46.188 1541.62,45.703 1542.55,44.903L1542.55,45.238C1542.55,45.319 1542.58,45.395 1542.64,45.454L1545.72,48.536C1545.84,48.655 1546.03,48.655 1546.15,48.536ZM1539.1,44.969C1536.85,44.969 1535.03,43.151 1535.03,40.906C1535.03,38.662 1536.85,36.844 1539.1,36.844C1541.34,36.844 1543.16,38.662 1543.16,40.906C1543.16,43.151 1541.34,44.969 1539.1,44.969Z"/>
+                    </g>
+                </g>
+            </svg>
+        </button>
+    </div>
+    <div class="px-2.5">
+        <div class="burger" x-on:click="mobileMenuOpen = ! mobileMenuOpen" x-bind:class="{ 'active': mobileMenuOpen }">
+            <div class="burger__menu">
+                <div class="burger__lines"></div>
+            </div>
+        </div>
+    </div>
+</div>

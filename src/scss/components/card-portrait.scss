@@ -1,0 +1,11 @@
+.card-portrait {
+    width: 100%;
+    max-width: 170px;
+    min-height: 240px;
+
+    @screen md {
+        max-width: 260px;
+        min-height: 364px; 
+    }
+
+}

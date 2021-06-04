@@ -1,0 +1,15 @@
+{#
+   Image single
+   Single contained image
+
+   @type {include}
+   @param {object} image
+
+#}
+
+
+{% if image is defined %}
+    <div class="image-single text-center max-w-4xl mx-auto"  data-aos="fade">
+        {% include '_components/picture' with {'image': image, 'transform': 'imageSingle'} %}
+    </div>
+{% endif %}

@@ -1,0 +1,15 @@
+
+{#
+   Header CTA
+   Header call to action
+
+   @type {include}
+
+#}
+
+<div class="header-cta bg-primary theme-dark py-3 text-zero text-center whitespace-nowrap w-full  overflow-hidden">
+    <div class="ticker overflow-hidden whitespace-nowrap">        
+        <span class="inline-block align-middle mr-2">{% include '_components/picture' with {'image': {'title': 'Phone Icon', 'url': siteUrl ~ 'dist/images/icon-phone.svg', 'extension': 'svg'}} %}</span>
+        <span class="inline-block align-middle text-xs leading-snug tracking-wide mr-5 md:mr-0 whitespace-nowrap  overflow-hidden">Can't find what you're looking for? Contact us on +44 (0)161 877 4747</span>
+    </div>
+</div>

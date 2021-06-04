@@ -1,0 +1,35 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Awards', 'image': craft.assets().filename('SKY-APP-STREAM EVO.jpg').one()}} %}
+
+    {% set textContentOne = {
+        'content': 
+        '
+        <h4>Under the Globus Group we hold a diverse range of leading brands.</h4>
+        <p>Brands that deliver innovative personal protective solutions right across the spectrum of healthcare and industrial sectors. These cover a range of disciplines to enable people to perform safety and work effectively in their jobs.</p>
+        <p>Our brands provide global worker safety solutions for Hand Protection, Safety Eyewear, Head Protection, Hearing Protection and Respiratory Protection.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'py-14 lg:py-20', 'data': textContentOne} %}
+
+
+    {% set tilesItems = {
+        'items': [
+            {'image': {'url': siteUrl ~ 'uploads/images/bsif.png', 'alt': 'Showa'}, 'text': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/queens.png', 'alt': 'Skytec'}, 'text': '<p>Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/frost_and_sullivan.png', 'alt': 'ENHA'}, 'text': '<p>aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/reddot.png', 'alt': 'Riley'}, 'text': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo </p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/forderpreis.png', 'alt': 'Alpha Solway'}, 'text': '<p>Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/bsif.png', 'alt': 'Showa'}, 'text': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/reddot.png', 'alt': 'Skytec'}, 'text': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo </p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/forderpreis.png', 'alt': 'ENHA'}, 'text': '<p>Ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit</p>'},
+            {'image': {'url': siteUrl ~ 'uploads/images/bsif.png', 'alt': 'Riley'}, 'text': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p>'},
+    ]}
+    %}
+
+    {% include '_layout/block' with {'block': 'tiles', 'blockClass': 'pt-14 lg:pt-20 pb-10 lg:pb-16 bg-gray-100', 'data': tilesItems} %}
+
+{% endblock %}

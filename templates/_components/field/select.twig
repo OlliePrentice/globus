@@ -1,0 +1,68 @@
+{#
+   Field Select
+   Outputs a select field with the correct markup
+
+   @type {include}
+   @param {integer} id
+   @param {string} label
+   @param {string} name
+   @param {string} value
+   @param {array} options
+   @param {string} attributes
+   @param {string} placeholder
+   @param {bool} multiple
+   @param {bool} required
+#}
+
+{% set id = id ?? (label is defined ? label|kebab : 'select-' ~ random(100,999)) %}
+
+{% if label is defined %}
+   {% include '_components/field/label' %}
+{% endif %}
+
+{% set baseClass = '
+      transition
+   appearance-none
+   block
+   w-full
+   bg-white
+   text-gray-700
+   border
+   border-gray-200
+   text-base
+   pl-4
+   pr-10
+   h-13
+   leading-tight
+   placeholder-gray-500
+   placeholder-opacity-100
+   hover:border-gray-500
+   focus:border-primary-500 
+   focus:outline-none
+   focus:shadow-outline
+' %}
+
+{% set class = class is defined ? baseClass ~ ' ' ~ class : baseClass %}
+
+<div class="relative">
+   <span class="absolute right-6 pointer-events-none top-1/2 transform -translate-y-1/2">
+        <svg width="9" height="5" xmlns="http://www.w3.org/2000/svg"><g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="02-Search-Results" transform="translate(-1340 -243)" fill="#000" fill-rule="nonzero"><path d="M1344.886 247.452l3.516-3.52a.546.546 0 00-.386-.932h-7.035a.546.546 0 00-.386.932l3.517 3.52c.213.213.56.213.774 0z" id=""/></g></g></svg>
+   </span>
+   <select 
+      name="{{ name }}" 
+      id="{{ id }}" 
+      class="{{ class }}"
+      {{ attributes is defined ? attributes|raw }}
+      {{ required is defined and required ? 'required' }}
+      {{ multiple is defined and multiple ? 'multiple' }}
+   >
+      {% for option in options %}
+         {% if placeholder is defined %}
+            <option value="" disabled{% if value is not defined %} selected{% endif %}>{{ placeholder }}</option>
+         {% endif %}
+         <option value="{{ option.value }}"{% if value is defined and option.value in value or option.checked is defined and option.checked %} selected{% endif %}>
+            {{ option.label }}
+         </option>
+      {% endfor %}
+   </select>
+</div>

@@ -1,0 +1,58 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Careers', 'image': craft.assets().filename('RLY-APP-LIGERA.jpg').one()}} %}
+    
+    
+    {% set textContentOne = {
+        'content': 
+        '
+        <h4>Come Work With Us.</h4>
+        <p>At Globus Group, our employees make us who we are. People are at the heart of everything we do and we engender an entrepreneurial spirit that allows our expert team to create high-quality, innovative solutions to meet customers’ needs. Here, you’ll be part of the biggest British-based innovative health and safety solutions company and a continually growing team of experts who strive for excellence.</p>
+        <p>Interested in joining the Globus Group family? If you’re right for our business, however, can’t see your perfect role being advertised at present, we’ll be happy to hear from you. Send your CV along with an introductory email to <a href="mailto:yourfuture@globusgroup.com">yourfuture@globusgroup.com</a> and we’ll consider your skills and experience and match them with any roles suitable for you.</p>
+        '
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'py-14 lg:py-20', 'data': textContentOne} %}
+
+
+    {% include '_layout/block' with {'block': 'jobs', 'blockClass': 'pb-14 lg:pb-20'} %}
+
+
+    {% set contentImageOne = {
+        'image': craft.assets().filename('ENH-APP-Radius-2.jpg').one(),
+        'title': 'Why work with us',
+        'content': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.</p>',
+        'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'py-14 lg:py-20 bg-gray-100', 'data': contentImageOne} %}
+
+    {% set contentImageTwo = {
+        'image': craft.assets().filename('SKY-APP-TROMSO.jpg').one(),
+        'title': 'A career like no other',
+        'content': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        ',
+      
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-20 bg-gray-100', 'data': contentImageTwo} %}
+
+        {% set contentImageThree = {
+        'image': craft.assets().filename('SKY-APP-ARGON.jpg').one(),
+        'title': 'We care. It\'s that simple.',
+        'content': '<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam.</p>
+        ',
+          'reverse': true
+    }
+    %}
+
+    {% include '_layout/block' with {'block': 'contentImage', 'blockClass': 'pb-20 bg-gray-100', 'data': contentImageThree} %}
+
+    {% include '_layout/block' with {'block': 'bannerBackground', 'blockClass': 'pb-10 bg-gray-100', 'container': false} %}
+
+{% endblock %}

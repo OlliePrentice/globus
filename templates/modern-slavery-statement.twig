@@ -1,0 +1,33 @@
+{% extends "_layout/global" %}
+
+{% block content %}
+
+    {% include '_layout/block' with {'block': 'pageHeader', 'container': false, 'data': {'title': 'Modern Slavery Statement', 'image': craft.assets().filename('SKY-APP-ARGON.jpg').one()}} %}
+
+    {% set textContent = {
+        'content': 
+        '
+        <h4>Globus Group of Companies: Modern Slavery Act Transparency Statement for Financial Year Ending May 2020</h4>
+
+        <p>It is the policy of Globus Group of Companies* not to accept any kind of human trafficking or slavery in its business.</p>
+
+        <p>Globus Group of Companies complies with UK law governing slavery and human trafficking.</p>
+
+        <p>Globus Group of Companies are wholly committed to respecting human rights across both our own operations and our supply chain. We also take appropriate action to ensure that all our employees understand our policy of eliminating forced labour, child labour and human trafficking and aim to ensure that our suppliers apply this standard within their operations and their own supply chains. The effectiveness of this policy is monitored through our processes and risk management procedures.</p>
+
+        <p>Andrew Morris<br>
+        Director<br>
+        1st June 2020<br>
+        </p>
+
+        <p>This statement was approved by the Company Board of Directors on 1st June 2020</p>
+        ',
+        'links': [
+            {'href': '#', 'title': 'Download a Copy Of This Statement', 'attributes': 'download'},
+            {'href': '#', 'title': 'Ethical Guide For Manufacturers', 'attributes': 'download'}
+        ]
+    } %}
+
+    {% include '_layout/block' with {'block': 'textContent', 'blockClass': 'py-14 lg:py-20', 'data': textContent} %}
+
+{% endblock %}

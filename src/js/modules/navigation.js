@@ -92,6 +92,14 @@ const navigationModule = () => {
     });
 
 
+    // Scroll to top links
+    document.querySelectorAll('.scroll-top').forEach(element => {
+        element.addEventListener('click', () => {
+            window.scroll({top: 0, left: 0, behavior: 'smooth'});
+        });
+    });
+       
+
 }
    
 export { navigationModule };

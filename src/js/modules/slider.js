@@ -71,6 +71,24 @@ const sliderModule = () => {
 
     });
 
+    document.querySelectorAll('.awards__slider').forEach(element => {
+
+        initSwiper(element, {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            breakpoints: {
+                560: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 5,
+                }
+            }
+        });
+
+    });
+
+
     document.querySelectorAll('.card-carousel__slider').forEach(element => {
 
         initSwiper(element, {
@@ -146,6 +164,7 @@ const sliderModule = () => {
         });
 
     });
+    
 
     function galleryController(element) {
 
